@@ -85,7 +85,6 @@ namespace ProjetPOO {
 			this->RETOUR->TabIndex = 8;
 			this->RETOUR->Text = L"< RETOUR";
 			this->RETOUR->UseVisualStyleBackColor = true;
-			this->RETOUR->Click += gcnew System::EventHandler(this, &Stock::RETOUR_Click);
 			// 
 			// listBox1
 			// 
@@ -151,12 +150,6 @@ namespace ProjetPOO {
 
 		}
 #pragma endregion
-	private: System::Void RETOUR_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Leave();
-	}
-		   void Leave()
-		   {
-			   this->Close();
-		   }
 	};
 }
+
