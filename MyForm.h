@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Accueil.h"
 
 namespace ProjetPOO {
 
@@ -8,8 +9,6 @@ namespace ProjetPOO {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Collections::Generic;
-
 
 	/// <summary>
 	/// Description résumée de MyForm
@@ -20,7 +19,9 @@ namespace ProjetPOO {
 		MyForm(void)
 		{
 			InitializeComponent();
-
+			//
+			//TODO: ajoutez ici le code du constructeur
+			//
 		}
 
 	protected:
@@ -34,15 +35,16 @@ namespace ProjetPOO {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TabControl^ Application;
-	private: System::Windows::Forms::TabPage^ Accueil;
-	private: System::Windows::Forms::TabPage^ clients;
-	private: System::Windows::Forms::TabPage^ Personnels;
-	private: System::Windows::Forms::TabPage^ stock;
-	private: System::Windows::Forms::TabPage^ commandes;
-	private: System::Windows::Forms::TabPage^ statistiques;
-	private: System::ComponentModel::Container^ components;
-
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ labelErrorMessage;
+	private:System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
@@ -51,102 +53,154 @@ namespace ProjetPOO {
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
-			   this->Application = (gcnew System::Windows::Forms::TabControl());
-			   this->Accueil = (gcnew System::Windows::Forms::TabPage());
-			   this->clients = (gcnew System::Windows::Forms::TabPage());
-			   this->Personnels = (gcnew System::Windows::Forms::TabPage());
-			   this->stock = (gcnew System::Windows::Forms::TabPage());
-			   this->commandes = (gcnew System::Windows::Forms::TabPage());
-			   this->statistiques = (gcnew System::Windows::Forms::TabPage());
-			   this->Application->SuspendLayout();
+			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			   this->label1 = (gcnew System::Windows::Forms::Label());
+			   this->label2 = (gcnew System::Windows::Forms::Label());
+			   this->label3 = (gcnew System::Windows::Forms::Label());
+			   this->label4 = (gcnew System::Windows::Forms::Label());
+			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			   this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			   this->button1 = (gcnew System::Windows::Forms::Button());
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
-			   // Application
+			   // label1
 			   // 
-			   this->Application->Controls->Add(this->Accueil);
-			   this->Application->Controls->Add(this->clients);
-			   this->Application->Controls->Add(this->Personnels);
-			   this->Application->Controls->Add(this->stock);
-			   this->Application->Controls->Add(this->commandes);
-			   this->Application->Controls->Add(this->statistiques);
-			   this->Application->ItemSize = System::Drawing::Size(150, 70);
-			   this->Application->Location = System::Drawing::Point(-3, -1);
-			   this->Application->Name = L"Application";
-			   this->Application->SelectedIndex = 0;
-			   this->Application->Size = System::Drawing::Size(908, 596);
-			   this->Application->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
-			   this->Application->TabIndex = 0;
+			   this->label1->AutoSize = true;
+			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label1->Location = System::Drawing::Point(101, 213);
+			   this->label1->Name = L"label1";
+			   this->label1->Size = System::Drawing::Size(94, 20);
+			   this->label1->TabIndex = 0;
+			   this->label1->Text = L"Username";
 			   // 
-			   // Accueil
+			   // label2
 			   // 
-			   this->Accueil->BackColor = System::Drawing::Color::Gainsboro;
-			   this->Accueil->Location = System::Drawing::Point(4, 74);
-			   this->Accueil->Name = L"Accueil";
-			   this->Accueil->Padding = System::Windows::Forms::Padding(3);
-			   this->Accueil->Size = System::Drawing::Size(900, 518);
-			   this->Accueil->TabIndex = 0;
+			   this->label2->AutoSize = true;
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label2->Location = System::Drawing::Point(101, 293);
+			   this->label2->Name = L"label2";
+			   this->label2->Size = System::Drawing::Size(91, 20);
+			   this->label2->TabIndex = 1;
+			   this->label2->Text = L"Password";
 			   // 
-			   // clients
+			   // label3
 			   // 
-			   this->clients->BackColor = System::Drawing::Color::Red;
-			   this->clients->Location = System::Drawing::Point(4, 74);
-			   this->clients->Name = L"clients";
-			   this->clients->Padding = System::Windows::Forms::Padding(3);
-			   this->clients->Size = System::Drawing::Size(902, 520);
-			   this->clients->TabIndex = 1;
-			   this->clients->Text = L"Clients";
+			   this->label3->AutoSize = true;
+			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label3->Location = System::Drawing::Point(51, 53);
+			   this->label3->Name = L"label3";
+			   this->label3->Size = System::Drawing::Size(265, 50);
+			   this->label3->TabIndex = 2;
+			   this->label3->Text = L"Votre centre d’information \r\n      sur notre évolution ";
 			   // 
-			   // Personnels
+			   // label4
 			   // 
-			   this->Personnels->BackColor = System::Drawing::Color::Orange;
-			   this->Personnels->Location = System::Drawing::Point(4, 74);
-			   this->Personnels->Name = L"Personnels";
-			   this->Personnels->Padding = System::Windows::Forms::Padding(3);
-			   this->Personnels->Size = System::Drawing::Size(902, 520);
-			   this->Personnels->TabIndex = 2;
-			   this->Personnels->Text = L"Personnels";
+			   this->label4->AutoSize = true;
+			   this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->label4->Location = System::Drawing::Point(75, 158);
+			   this->label4->Name = L"label4";
+			   this->label4->Size = System::Drawing::Size(140, 18);
+			   this->label4->TabIndex = 3;
+			   this->label4->Text = L"Connectez vous :";
 			   // 
-			   // stock
+			   // pictureBox1
 			   // 
-			   this->stock->BackColor = System::Drawing::Color::Cyan;
-			   this->stock->Location = System::Drawing::Point(4, 74);
-			   this->stock->Name = L"stock";
-			   this->stock->Padding = System::Windows::Forms::Padding(3);
-			   this->stock->Size = System::Drawing::Size(902, 520);
-			   this->stock->TabIndex = 3;
-			   this->stock->Text = L"Stock";
+			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			   this->pictureBox1->Location = System::Drawing::Point(356, 44);
+			   this->pictureBox1->Name = L"pictureBox1";
+			   this->pictureBox1->Size = System::Drawing::Size(133, 69);
+			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox1->TabIndex = 4;
+			   this->pictureBox1->TabStop = false;
 			   // 
-			   // commandes
+			   // textBox1
 			   // 
-			   this->commandes->BackColor = System::Drawing::Color::Blue;
-			   this->commandes->Location = System::Drawing::Point(4, 74);
-			   this->commandes->Name = L"commandes";
-			   this->commandes->Padding = System::Windows::Forms::Padding(3);
-			   this->commandes->Size = System::Drawing::Size(902, 520);
-			   this->commandes->TabIndex = 4;
-			   this->commandes->Text = L"Commandes";
+			   this->textBox1->Location = System::Drawing::Point(222, 213);
+			   this->textBox1->Name = L"textBox1";
+			   this->textBox1->Size = System::Drawing::Size(202, 22);
+			   this->textBox1->TabIndex = 5;
 			   // 
-			   // statistiques
+			   // textBox2
 			   // 
-			   this->statistiques->BackColor = System::Drawing::Color::Fuchsia;
-			   this->statistiques->Location = System::Drawing::Point(4, 74);
-			   this->statistiques->Name = L"statistiques";
-			   this->statistiques->Padding = System::Windows::Forms::Padding(3);
-			   this->statistiques->Size = System::Drawing::Size(902, 520);
-			   this->statistiques->TabIndex = 5;
-			   this->statistiques->Text = L"Statistiques";
+			   this->textBox2->Location = System::Drawing::Point(222, 293);
+			   this->textBox2->Name = L"textBox2";
+			   this->textBox2->Size = System::Drawing::Size(202, 22);
+			   this->textBox2->TabIndex = 6;
+			   this->textBox2->UseSystemPasswordChar = true;
+
+			   // 
+			   // button1
+			   // 
+			   this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->button1->Location = System::Drawing::Point(195, 359);
+			   this->button1->Name = L"button1";
+			   this->button1->Size = System::Drawing::Size(132, 31);
+			   this->button1->TabIndex = 7;
+			   this->button1->Text = L"Connection";
+			   this->button1->UseVisualStyleBackColor = true;
+			   this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+
+			   // labelErrorMessage
+			   this->labelErrorMessage = gcnew System::Windows::Forms::Label();
+			   this->labelErrorMessage->AutoSize = true;
+			   this->labelErrorMessage->Location = System::Drawing::Point(195, 400); // Modifiez ces coordonnées selon votre disposition
+			   this->labelErrorMessage->Name = L"labelErrorMessage";
+			   this->labelErrorMessage->Size = System::Drawing::Size(200, 20); // Modifiez la taille selon vos besoins
+			   this->labelErrorMessage->TabIndex = 8; // Ajustez l'index selon vos besoins
+			   this->labelErrorMessage->Text = L""; // Texte initial vide
+			   this->Controls->Add(this->labelErrorMessage);
+
 			   // 
 			   // MyForm
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(905, 598);
-			   this->Controls->Add(this->Application);
+			   this->BackColor = System::Drawing::Color::Gray;
+			   this->ClientSize = System::Drawing::Size(537, 473);
+			   this->Controls->Add(this->button1);
+			   this->Controls->Add(this->textBox2);
+			   this->Controls->Add(this->textBox1);
+			   this->Controls->Add(this->pictureBox1);
+			   this->Controls->Add(this->label4);
+			   this->Controls->Add(this->label3);
+			   this->Controls->Add(this->label2);
+			   this->Controls->Add(this->label1);
 			   this->Name = L"MyForm";
-			   this->Text = L"MyForm";
-			   this->Application->ResumeLayout(false);
+			   this->Text = L"Login";
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
+			   this->PerformLayout();
+
 		   }
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Vérifier si les informations d'identification sont correctes
+		if (textBox1->Text == "admin" && textBox2->Text == "1234") {
+			// Si correct, affichez le formulaire Accueil
+			Accueil^ accueilForm = gcnew Accueil();
+			this->Hide(); // Masquer le formulaire de connexion
+			accueilForm->ShowDialog();
+			this->Show(); // Afficher à nouveau le formulaire de connexion après la fermeture du formulaire Accueil
+		}
+		else {
+			// Sinon, afficher un message d'erreur
+			UpdateErrorMessage("Nom d'utilisateur ou mot de passe incorrect");
+		}
+	}
+
+		   System::Void UpdateErrorMessage(System::String^ message)
+		   {
+			   labelErrorMessage->Text = message;
+		   }
+
+
 #pragma endregion
 	};
 }

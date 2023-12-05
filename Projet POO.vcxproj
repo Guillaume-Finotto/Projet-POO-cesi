@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{81F04216-D4FB-4170-9E4A-03A77E44AB5E}</ProjectGuid>
     <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>ProjetPOO</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -83,8 +83,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>Main</EntryPointSymbol>
+      <SubSystem>NotSet</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\Joris\Desktop\SQLiteCpp-master;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -117,6 +118,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AccesBDD.cpp" />
+    <ClCompile Include="Accueil.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
@@ -124,9 +126,13 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Personel.cpp" />
+    <ClCompile Include="Statistique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccesBDD.h" />
+    <ClInclude Include="Accueil.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
@@ -136,6 +142,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Personel.h" />
+    <ClInclude Include="Statistique.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -145,8 +154,14 @@
     <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accueil.resx">
+      <DependentUpon>Accueil.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistique.resx">
+      <DependentUpon>Statistique.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
