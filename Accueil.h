@@ -1,6 +1,9 @@
 ﻿#pragma once
 #include "Statistique.h"
-#include "Stock.h"
+#include "Stock1.h"
+#include "Commande1.h"
+#include "Client1.h"
+#include "Personnel.h"
 
 namespace ProjetPOO {
 
@@ -93,6 +96,7 @@ namespace ProjetPOO {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Client";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Accueil::button2_Click);
 			// 
 			// button3
 			// 
@@ -104,9 +108,11 @@ namespace ProjetPOO {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Personnel";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Accueil::button3_Click);
 			// 
 			// button4
 			// 
+			this->button4->BackColor = System::Drawing::Color::White;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->Location = System::Drawing::Point(112, 156);
@@ -114,7 +120,7 @@ namespace ProjetPOO {
 			this->button4->Size = System::Drawing::Size(181, 59);
 			this->button4->TabIndex = 3;
 			this->button4->Text = L"Stock";
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &Accueil::button4_Click);
 			// 
 			// button5
@@ -127,6 +133,7 @@ namespace ProjetPOO {
 			this->button5->TabIndex = 4;
 			this->button5->Text = L"Commande";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Accueil::button5_Click);
 			// 
 			// button6
 			// 
@@ -165,7 +172,7 @@ namespace ProjetPOO {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Gray;
+			this->BackColor = System::Drawing::Color::DarkGray;
 			this->ClientSize = System::Drawing::Size(818, 423);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label1);
@@ -192,7 +199,6 @@ namespace ProjetPOO {
 		{
 			this->Close(); // Fermer l'interface Accueil
 		}
-
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 		Statistique^ statistiqueForm = gcnew Statistique();
 		this->Hide(); // Masquer le formulaire de connexion
@@ -205,5 +211,23 @@ namespace ProjetPOO {
 		stockForm->ShowDialog();
 		this->Show();
 	}
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		Commande^  commande1 = gcnew Commande();
+		this->Hide(); // Masquer le formulaire de connexion
+		commande1 ->ShowDialog();
+		this->Show();
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		Client^ client = gcnew Client();
+		this->Hide(); // Masquer le formulaire de connexion
+		client->ShowDialog();
+		this->Show();
+}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		Personnel^ personnel = gcnew Personnel();
+		this->Hide(); // Masquer le formulaire de connexion
+		personnel->ShowDialog();
+		this->Show();
+}
 };
 }
