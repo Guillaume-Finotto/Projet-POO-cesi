@@ -13,5 +13,7 @@ public:
         Date_embauche,
         ID_superieur
     };
+private:
+    std::string static TypeEtTable = "Personnel";
 };
 

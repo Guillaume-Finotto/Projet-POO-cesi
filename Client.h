@@ -15,5 +15,8 @@ public:
         Premier_achat,
         client_inscrit
     };
+
+private:
+    std::string static TypeEtTable = "Article";
 };
 

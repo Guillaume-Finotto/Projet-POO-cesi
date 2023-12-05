@@ -1,6 +1,7 @@
 #pragma once
 #include "AccesBDD.h"
 #include <string>
+#include <vector>
 class Manager : AccesBDD
 {
 public:
@@ -12,9 +13,10 @@ public:
     void setattribut(collone col, std::string valeur);
 	void afficher();
     std::string getAttribut(collone col);
+	std::vector<std::string> getAllAttribut();
 
 protected:
 	unsigned int id;
-	
+	std::string TypeEtTable;
 };
 
