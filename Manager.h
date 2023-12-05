@@ -1,6 +1,6 @@
 #pragma once
 #include "AccesBDD.h"
-
+#include <string>
 class Manager : AccesBDD
 {
 public:
