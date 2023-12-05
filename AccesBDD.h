@@ -1,7 +1,7 @@
 // AccesBDD.h
 #pragma once
 
-#include <SQLiteCpp/SQLiteCpp.h>
+#include 
 
 class AccesBDD {
 public:

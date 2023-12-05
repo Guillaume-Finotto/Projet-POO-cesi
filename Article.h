@@ -19,7 +19,8 @@ public:
         Prix_fournisseur,
         en_vente
     };
-
+private:
+    std::string static  TypeEtTable = "Article";
 
 };
 
