@@ -13,15 +13,63 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\ClasseUtilisationBDD">
+      <UniqueIdentifier>{dce2ee47-9672-4fb6-8455-64a95dce2852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse">
+      <UniqueIdentifier>{9a388b27-cdbf-4c20-a648-8980df1db683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Interface HM">
+      <UniqueIdentifier>{d6312143-072d-4849-b9f9-7082a2a05032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\DefClasse">
+      <UniqueIdentifier>{50edd157-1541-467b-8e7b-565392d9b7db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Personel.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AccesBDD.cpp">
+      <Filter>Fichiers sources\DefClasse</Filter>
+    </ClCompile>
+    <ClCompile Include="Article.cpp">
+      <Filter>Fichiers sources\DefClasse</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Fichiers sources\DefClasse</Filter>
+    </ClCompile>
+    <ClCompile Include="Commande.cpp">
+      <Filter>Fichiers sources\DefClasse</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
+    </ClInclude>
+    <ClInclude Include="Article.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+    </ClInclude>
+    <ClInclude Include="AccesBDD.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
+    </ClInclude>
+    <ClInclude Include="Commande.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+    </ClInclude>
+    <ClInclude Include="Personel.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
