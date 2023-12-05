@@ -122,6 +122,7 @@
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="Commande1.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -137,6 +138,9 @@
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
+    <ClInclude Include="Commande1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="MyForm.h">
@@ -160,6 +164,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commande1.resx">
+      <DependentUpon>Commande1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
