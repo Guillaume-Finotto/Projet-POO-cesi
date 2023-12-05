@@ -3,7 +3,7 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-[STAThread]
+
 int Main(array<System::String^>^ args)
 {
     Application::EnableVisualStyles();
@@ -15,5 +15,6 @@ int Main(array<System::String^>^ args)
 
     return 0;
 }
+
 #include "MyForm.h"
 
