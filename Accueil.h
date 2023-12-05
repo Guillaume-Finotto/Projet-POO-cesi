@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Statistique.h"
+#include "Stock.h"
 
 namespace ProjetPOO {
 
@@ -114,6 +115,7 @@ namespace ProjetPOO {
 			this->button4->TabIndex = 3;
 			this->button4->Text = L"Stock";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &Accueil::button4_Click);
 			// 
 			// button5
 			// 
@@ -190,11 +192,18 @@ namespace ProjetPOO {
 		{
 			this->Close(); // Fermer l'interface Accueil
 		}
+
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 		Statistique^ statistiqueForm = gcnew Statistique();
 		this->Hide(); // Masquer le formulaire de connexion
 		statistiqueForm->ShowDialog();
 		this->Show();
 	}
-	};
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		Stock^ stockForm = gcnew Stock();
+		this->Hide(); // Masquer le formulaire de connexion
+		stockForm->ShowDialog();
+		this->Show();
+	}
+};
 }
