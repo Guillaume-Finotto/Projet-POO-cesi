@@ -25,28 +25,34 @@
     <Filter Include="Fichiers sources\DefClasse">
       <UniqueIdentifier>{50edd157-1541-467b-8e7b-565392d9b7db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\DefClasse\classeFille">
+      <UniqueIdentifier>{ac86d26e-a214-4eaa-b102-14ddc77e3348}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Personel.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="AccesBDD.cpp">
       <Filter>Fichiers sources\DefClasse</Filter>
     </ClCompile>
-    <ClCompile Include="Article.cpp">
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
       <Filter>Fichiers sources\DefClasse</Filter>
+    </ClCompile>
+    <ClCompile Include="Article.cpp">
+      <Filter>Fichiers sources\DefClasse\classeFille</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
-      <Filter>Fichiers sources\DefClasse</Filter>
+      <Filter>Fichiers sources\DefClasse\classeFille</Filter>
     </ClCompile>
     <ClCompile Include="Commande.cpp">
-      <Filter>Fichiers sources\DefClasse</Filter>
+      <Filter>Fichiers sources\DefClasse\classeFille</Filter>
+    </ClCompile>
+    <ClCompile Include="Personel.cpp">
+      <Filter>Fichiers sources\DefClasse\classeFille</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Personel.h">
       <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,5 +16,3 @@ int Main(array<System::String^>^ args)
     return 0;
 }
 
-#include "MyForm.h"
-

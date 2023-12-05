@@ -118,6 +118,7 @@
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Personel.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
