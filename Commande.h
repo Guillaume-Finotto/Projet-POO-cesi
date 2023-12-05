@@ -17,6 +17,7 @@ public:
         ID_Personnel
     };
 
+
 private:
     std::string static TypeEtTable = "Commande";
 };
