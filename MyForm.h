@@ -62,6 +62,7 @@ namespace ProjetPOO {
 			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			   this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			   this->button1 = (gcnew System::Windows::Forms::Button());
+			   this->labelErrorMessage = (gcnew System::Windows::Forms::Label());
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
@@ -133,7 +134,6 @@ namespace ProjetPOO {
 			   this->textBox2->Size = System::Drawing::Size(202, 22);
 			   this->textBox2->TabIndex = 6;
 			   this->textBox2->UseSystemPasswordChar = true;
-
 			   // 
 			   // button1
 			   // 
@@ -146,24 +146,22 @@ namespace ProjetPOO {
 			   this->button1->Text = L"Connection";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-
+			   // 
 			   // labelErrorMessage
-			   this->labelErrorMessage = gcnew System::Windows::Forms::Label();
+			   // 
 			   this->labelErrorMessage->AutoSize = true;
-			   this->labelErrorMessage->Location = System::Drawing::Point(195, 400); // Modifiez ces coordonnées selon votre disposition
+			   this->labelErrorMessage->Location = System::Drawing::Point(195, 400);
 			   this->labelErrorMessage->Name = L"labelErrorMessage";
-			   this->labelErrorMessage->Size = System::Drawing::Size(200, 20); // Modifiez la taille selon vos besoins
-			   this->labelErrorMessage->TabIndex = 8; // Ajustez l'index selon vos besoins
-			   this->labelErrorMessage->Text = L""; // Texte initial vide
-			   this->Controls->Add(this->labelErrorMessage);
-
+			   this->labelErrorMessage->Size = System::Drawing::Size(0, 16);
+			   this->labelErrorMessage->TabIndex = 8;
 			   // 
 			   // MyForm
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::Color::Gray;
+			   this->BackColor = System::Drawing::Color::DarkGray;
 			   this->ClientSize = System::Drawing::Size(537, 473);
+			   this->Controls->Add(this->labelErrorMessage);
 			   this->Controls->Add(this->button1);
 			   this->Controls->Add(this->textBox2);
 			   this->Controls->Add(this->textBox1);

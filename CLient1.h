@@ -10,12 +10,12 @@ namespace ProjetPOO {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Description résumée de Stock
+	/// Description résumée de Client
 	/// </summary>
-	public ref class Stock : public System::Windows::Forms::Form
+	public ref class Client : public System::Windows::Forms::Form
 	{
 	public:
-		Stock(void)
+		Client(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace ProjetPOO {
 		/// <summary>
 		/// Nettoyage des ressources utilisées.
 		/// </summary>
-		~Stock()
+		~Client()
 		{
 			if (components)
 			{
@@ -68,11 +68,12 @@ namespace ProjetPOO {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(312, 33);
+			this->label3->Location = System::Drawing::Point(299, 37);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(185, 37);
+			this->label3->Size = System::Drawing::Size(176, 37);
 			this->label3->TabIndex = 7;
-			this->label3->Text = L"Notre Stock";
+			this->label3->Text = L"Nos Clients";
+			this->label3->Click += gcnew System::EventHandler(this, &Client::label3_Click);
 			// 
 			// RETOUR
 			// 
@@ -85,7 +86,7 @@ namespace ProjetPOO {
 			this->RETOUR->TabIndex = 8;
 			this->RETOUR->Text = L"< RETOUR";
 			this->RETOUR->UseVisualStyleBackColor = true;
-			this->RETOUR->Click += gcnew System::EventHandler(this, &Stock::RETOUR_Click);
+			this->RETOUR->Click += gcnew System::EventHandler(this, &Client::RETOUR_Click);
 			// 
 			// listBox1
 			// 
@@ -105,7 +106,7 @@ namespace ProjetPOO {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(151, 66);
 			this->button1->TabIndex = 10;
-			this->button1->Text = L"Ajouter \r\nArticle";
+			this->button1->Text = L"Ajouter Client";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// button2
@@ -117,7 +118,7 @@ namespace ProjetPOO {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(151, 66);
 			this->button2->TabIndex = 11;
-			this->button2->Text = L"Supprimer\r\nArticle\r\n";
+			this->button2->Text = L"Supprimer\r\nClient";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// button3
@@ -127,16 +128,16 @@ namespace ProjetPOO {
 			this->button3->Location = System::Drawing::Point(472, 193);
 			this->button3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(189, 57);
+			this->button3->Size = System::Drawing::Size(189, 64);
 			this->button3->TabIndex = 12;
-			this->button3->Text = L"Modifier Article";
+			this->button3->Text = L"Modifier Client";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// Stock
+			// Client
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Gray;
+			this->BackColor = System::Drawing::Color::DarkGray;
 			this->ClientSize = System::Drawing::Size(747, 472);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -144,8 +145,8 @@ namespace ProjetPOO {
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->RETOUR);
 			this->Controls->Add(this->label3);
-			this->Name = L"Stock";
-			this->Text = L"Stock";
+			this->Name = L"Client";
+			this->Text = L"Client";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -158,5 +159,7 @@ namespace ProjetPOO {
 		   {
 			   this->Close();
 		   }
-	};
+	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

@@ -68,7 +68,7 @@ namespace ProjetPOO {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(312, 33);
+			this->label3->Location = System::Drawing::Point(297, 35);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(185, 37);
 			this->label3->TabIndex = 7;
@@ -136,7 +136,7 @@ namespace ProjetPOO {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Gray;
+			this->BackColor = System::Drawing::Color::DarkGray;
 			this->ClientSize = System::Drawing::Size(747, 472);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
