@@ -1,13 +1,19 @@
+// AccesBDD.h
 #pragma once
-#include <string>
 
-class AccesBDD
-{
+#include <SQLiteCpp/SQLiteCpp.h>
 
+class AccesBDD {
 public:
-	AccesBDD();
+    AccesBDD();
+    ~AccesBDD();
+
+    bool connect();
+    void disconnect();
+
+    // Exemple de fonction pour récupérer les données de la table personnel
+    void afficherTablePersonnel();
 
 private:
-	std::string identifiantBDD;
+    SQLite::Database* db;
 };
-
