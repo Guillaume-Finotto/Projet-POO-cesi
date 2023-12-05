@@ -5,6 +5,7 @@ class Client :
 {
 
 public:
+    Client() : Manager();
     enum collone {
         ID,
         Nom,
