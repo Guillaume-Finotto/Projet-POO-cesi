@@ -405,7 +405,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->label1);
-			this->Name = L"Statistique";
+			this->Name = L"Statistiques";
 			this->Load += gcnew System::EventHandler(this, &Statistique::Statistique_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
