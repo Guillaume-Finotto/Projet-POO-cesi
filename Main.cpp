@@ -5,7 +5,7 @@ using namespace System;
 using namespace System::Windows::Forms;
 
 
-int main(array<System::String^>^ args)
+int main()
 {
     
     AccesBDD* basePrincipale = &AccesBDD();

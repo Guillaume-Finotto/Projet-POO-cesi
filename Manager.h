@@ -18,11 +18,13 @@ public:
     void setattribut(collone col, std::string valeur);
 	void afficher();
 
+
     std::string getAttribut(collone col);
 
 	std::vector<std::string> getAllAttribut();
 
 protected:
+
 	AccesBDD * BDD;
 	unsigned int id;
 	std::string TypeEtTable;

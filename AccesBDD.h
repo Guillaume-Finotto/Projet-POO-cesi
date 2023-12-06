@@ -2,23 +2,24 @@
 #pragma once
 #include <windows.h>
 #include <iostream>
+#include <map>
 #include <sql.h>
 #include <sqlext.h>
 #include <vector>
 #include <msclr/marshal_cppstd.h>
 #include "stdlib.h"
 #include <vcclr.h>
-
+#include <map>
 
 using namespace std;
 
 enum Table
 {
-    Personnel = "Personel",
-    Client ="client",
-    Commande = "commande",
-    Article = "article",
-    Sous_Commande = "sous_commande"
+    Personnel ,
+    Client ,
+    Commande ,
+    Article ,
+    Sous_Commande
 
 };
 
@@ -38,6 +39,8 @@ public:
     vector<string> effectuerRequeteSQL(string requete);
 
 private:
+    string Tableref[5] = { "personnel","Client" ,"Commande","Article","Sous_Commande" };
+
     SQLHENV hEnv;
     SQLHDBC hDbc;
     SQLHSTMT hStmt;
