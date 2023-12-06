@@ -1,5 +1,7 @@
 #include "AccesBDD.h"
 
+
+
 AccesBDD::AccesBDD()
 {
     std::string t;
@@ -59,9 +61,7 @@ AccesBDD::~AccesBDD()
 }
 
 
-void AccesBDD::afficherTablePersonnel()
-{
-}
+
 
 std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
 {
@@ -75,12 +75,17 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
     SQLLEN indicator;
     SQLRETURN ret2 = SQLFetch(hStmt);
 
+    std::vector<std::string> retour;
+    std::string ajout;
+
     while ((ret2 = SQLFetch(hStmt)) == SQL_SUCCESS || ret2 == SQL_SUCCESS_WITH_INFO) {
 
         SQLGetData(hStmt, 1, SQL_C_CHAR, buffer, sizeof(buffer), &indicator);
         std::cout << indicator << buffer << std::endl;
         if (indicator != SQL_NULL_DATA) {
             std::cout << "Colonne 1 : " << buffer << std::endl;
+            ajout = std::string(reinterpret_cast<char*>(buffer));
+            retour.push_back(ajout);
         }
         int out = SQLFetch(hStmt);
         // Répétez le processus pour d'autres colonnes si nécessaire
@@ -88,7 +93,6 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
 
 
 
-    std::cout << "teste2";
-
+    return retour;
 
 }
