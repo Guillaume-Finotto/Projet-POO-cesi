@@ -78,9 +78,10 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
     std::string flatData = "";
     for(size_t i; i<valeurs.size();i++)
     {
-        flatData = flatData + valeurs[i]+",";
+        flatData = flatData + "'"+ valeurs[i]+"'" +",";
 
     }
+    cout << flatData;
     if (!flatData.empty()) {
         // Supprimer le dernier caractère
         flatData.erase(flatData.size() - 1);
@@ -124,6 +125,8 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
             ajout = std::string(reinterpret_cast<char*>(buffer));
             retour.push_back(ajout);
         }
+        else { std::cout << " VIDE "; }
+
         int out = SQLFetch(hStmt);
         // Répétez le processus pour d'autres colonnes si nécessaire
     }
