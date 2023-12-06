@@ -95,5 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Desktop\sqlite.dll" />
+    <None Include="..\..\..\..\Downloads\msodbcsql(1).msi">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
 </Project>

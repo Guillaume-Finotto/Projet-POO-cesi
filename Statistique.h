@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+/*
 namespace ProjetPOO {
 
 	using namespace System;
@@ -483,3 +484,4 @@ namespace ProjetPOO {
 	}
 	};
 }
+*/

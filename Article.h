@@ -4,6 +4,7 @@ class Article :
     public Manager
 {
 
+
 public:
     enum collone {
         ID,
@@ -20,7 +21,7 @@ public:
         en_vente
     };
 private:
-    std::string static  TypeEtTable = "Article";
+    std::string TypeEtTable = "Article";
 
 };
 

@@ -6,7 +6,7 @@ class Manager
 {
 public:
 	Manager(AccesBDD *Acces_BDD, unsigned int id=0);
-	static virtual enum collone;
+	virtual enum collone{teste,echec};
 	
     void ajouter();
 	void detruire();

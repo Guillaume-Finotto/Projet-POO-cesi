@@ -1,50 +1,94 @@
-// AccesBDD.cpp
 #include "AccesBDD.h"
-#include <iostream>
-#include "SQLiteCpp/SQLiteCpp.h"
 
-AccesBDD::AccesBDD() : db(nullptr) {}
+AccesBDD::AccesBDD()
+{
+    std::string t;
 
-AccesBDD::~AccesBDD() {
-    disconnect();
+    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv);
+    SQLSetEnvAttr(hEnv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0);
+
+
+    SQLAllocHandle(SQL_HANDLE_DBC, hEnv, &hDbc);
+
+
+    // IMPORTANT ////////////////////////////////////////
+
+    SQLWCHAR* connectionString = (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
+
+	////////////////////////////////////////////////////
+
+
+    SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
+
+    if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
+        // Obtenir des informations détaillées sur l'erreur
+        SQLWCHAR sqlState[6];
+        SQLINTEGER nativeError;
+        SQLWCHAR messageText[256];
+        SQLSMALLINT textLength;
+
+        SQLGetDiagRec(SQL_HANDLE_DBC, hDbc, 1, sqlState, &nativeError, messageText, sizeof(messageText), &textLength);
+
+        std::wcerr << "Erreur lors de la connexion à la base de données." << std::endl;
+        std::wcerr << "État SQL: " << sqlState << std::endl;
+        std::wcerr << "Code d'erreur natif: " << nativeError << std::endl;
+        std::wcerr << "Message d'erreur: " << messageText << std::endl;
+
+        // Libération des ressources en cas d'erreur
+        SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
+        SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
+
+        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
+        std::cin >> t;
+        std::cout << t;
+        
+    }
+
+    // Création d'une déclaration
+    SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
+
 }
 
-bool AccesBDD::connect() {
-    try {
-        db = new SQLite::Database("C:\Users\Joris\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB");
-        return true;
-    }
-    catch (const std::exception& e) {
-        std::cerr << "Erreur de connexion à la base de données : " << e.what() << std::endl;
-        return false;
-    }
+AccesBDD::~AccesBDD()
+{
+    // Libération des ressources
+    SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
+    SQLDisconnect(hDbc);
+    SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
+    SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 }
 
-void AccesBDD::disconnect() {
-    if (db) {
-        delete db;
-        db = nullptr;
-    }
+
+void AccesBDD::afficherTablePersonnel()
+{
 }
 
-void AccesBDD::afficherTablePersonnel() {
-    if (!db) {
-        std::cerr << "La base de données n'est pas connectée." << std::endl;
-        return;
-    }
+std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
+{
 
-    try {
-        SQLite::Statement query(*db, "SELECT * FROM personnel");
-        while (query.executeStep()) {
-            int id_personnel = query.getColumn(0);
-            std::string nom = query.getColumn(1);
-            std::string prenom = query.getColumn(2);
-            // Ajoutez ici d'autres colonnes selon votre table
+    // Exemple de requête SQL (remplacez par votre propre requête)
+    SQLWCHAR* query = (SQLWCHAR*)requete.c_str();
+    SQLExecDirect(hStmt, query, SQL_NTS);
 
-            std::cout << "ID: " << id_personnel << ", Nom: " << nom << ", Prenom: " << prenom << std::endl;
+    // Récupération des résultats
+    SQLCHAR buffer[1024];
+    SQLLEN indicator;
+    SQLRETURN ret2 = SQLFetch(hStmt);
+
+    while ((ret2 = SQLFetch(hStmt)) == SQL_SUCCESS || ret2 == SQL_SUCCESS_WITH_INFO) {
+
+        SQLGetData(hStmt, 1, SQL_C_CHAR, buffer, sizeof(buffer), &indicator);
+        std::cout << indicator << buffer << std::endl;
+        if (indicator != SQL_NULL_DATA) {
+            std::cout << "Colonne 1 : " << buffer << std::endl;
         }
+        int out = SQLFetch(hStmt);
+        // Répétez le processus pour d'autres colonnes si nécessaire
     }
-    catch (const std::exception& e) {
-        std::cerr << "Erreur lors de la récupération des données : " << e.what() << std::endl;
-    }
+
+
+
+    std::cout << "teste2";
+
+
 }

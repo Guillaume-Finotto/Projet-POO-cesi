@@ -3,7 +3,6 @@
 class Personel : Manager
 {
 public:
-
     enum collone {
         ID,
         Nom,
@@ -14,6 +13,6 @@ public:
         ID_superieur
     };
 private:
-    std::string static TypeEtTable = "Personnel";
+    std::string TypeEtTable = "Personnel";
 };
 

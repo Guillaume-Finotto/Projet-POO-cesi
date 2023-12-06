@@ -199,10 +199,11 @@ namespace ProjetPOO {
 		{
 			this->Close(); // Fermer l'interface Accueil
 		}
-	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {/*
 		Statistique^ statistiqueForm = gcnew Statistique();
 		this->Hide(); // Masquer le formulaire de connexion
 		statistiqueForm->ShowDialog();
+		*/
 		this->Show();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {

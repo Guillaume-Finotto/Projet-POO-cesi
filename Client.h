@@ -1,23 +1,23 @@
 #pragma once
 #include "Manager.h"
-class Client :
-    public Manager
+using namespace std;
+enum class collone {
+    ID,
+    Nom,
+    Prenom,
+    Adresse_facturation,
+    Adresse_livraison,
+    Date_de_naissance,
+    Premier_achat,
+    client_inscrit
+};
+class Client : Manager
 {
 
-public:
-    Client() : Manager();
-    enum collone {
-        ID,
-        Nom,
-        Prenom,
-        Adresse_facturation,
-        Adresse_livraison,
-        Date_de_naissance,
-        Premier_achat,
-        client_inscrit
-    };
+
+	Client(AccesBDD* bdd,unsigned int id);
+    
 
 private:
-    std::string static TypeEtTable = "Article";
+    std::string  TypeEtTable = "Article";
 };
-

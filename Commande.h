@@ -19,6 +19,6 @@ public:
 
 
 private:
-    std::string static TypeEtTable = "Commande";
+    std::string  TypeEtTable = "Commande";
 };
 
