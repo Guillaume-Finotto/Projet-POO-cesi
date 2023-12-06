@@ -1,7 +1,6 @@
-// AccesBDD.h
+//AccesBDD.h
 #pragma once
 
-#include 
 
 class AccesBDD {
 public:
