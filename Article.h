@@ -21,7 +21,21 @@ public:
         en_vente
     };
 private:
-    std::string TypeEtTable = "Article";
-
+    Table Type = Table::Article;
+    /*
+    vector<string> collone ={
+        "ID",
+        Nom,
+        Nature,
+        Couleur,
+        PrixHT,
+        PrixTTC,
+        Qte_stocker,
+        seuil_reappro,
+        taux_TVA,
+        Prix_variable,
+        Prix_fournisseur,
+        en_vente
+     }*/
 };
 

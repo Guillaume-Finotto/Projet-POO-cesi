@@ -60,7 +60,44 @@ AccesBDD::~AccesBDD()
     SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 }
 
+void AccesBDD::suprimerDansBDD(Table table, unsigned int ID)
+{
+    suprimerDansBDD(table, to_string(ID));
+}
 
+void AccesBDD::suprimerDansBDD(Table table, string ID)
+{
+    effectuerRequeteSQL("DELETE FROM "+ getref(table) +  " WHERE ID = " + ID);
+
+
+}
+
+void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
+{
+
+    std::string flatData = "";
+    for(size_t i; i<valeurs.size();i++)
+    {
+        flatData = flatData + valeurs[i]+",";
+
+    }
+    if (!flatData.empty()) {
+        // Supprimer le dernier caractère
+        flatData.erase(flatData.size() - 1);
+    }
+    
+    try{
+		effectuerRequeteSQL("INSERT INTO" + getref(table) + " VALUES (" + flatData +");");
+    }
+    catch (const exception& e) { cout << "Une erreur est survenu lors de l'ajout d'un element dans la BDD :" << e.what() << endl; }
+
+    
+}
+
+string AccesBDD::getref(Table a)
+{
+    return Tableref[a];
+}
 
 
 std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)

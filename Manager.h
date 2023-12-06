@@ -27,7 +27,8 @@ protected:
 
 	AccesBDD * BDD;
 	unsigned int id;
-	std::string TypeEtTable;
+	Table Type;
+
 	std::vector<std::string> valeurs;
 };
 

@@ -39,6 +39,7 @@ public:
     vector<string> effectuerRequeteSQL(string requete);
 
 private:
+    string getref(Table a);
     string Tableref[5] = { "personnel","Client" ,"Commande","Article","Sous_Commande" };
 
     SQLHENV hEnv;
