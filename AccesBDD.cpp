@@ -75,36 +75,8 @@ SQLHSTMT AccesBDD::conextion(){
 	////////////////////////////////////////////////////
 
 
-    //SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
+    SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
 
-
-
-    SQLHENV henv;
-    SQLHDBC hdbc;
-    SQLHSTMT hstmt;
-
-    // Allouer et initialiser l'environnement ODBC
-    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &henv);
-    SQLSetEnvAttr(henv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, SQL_IS_UINTEGER);
-
-    // Allouer et initialiser la connexion ODBC
-    SQLAllocHandle(SQL_HANDLE_DBC, henv, &hdbc);
-
-    // Spécifier le DSN (Data Source Name) ou la chaîne de connexion (remplacez "YourDSN" par votre DSN)
-    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
-
-    // Utiliser l'authentification Windows intégrée
-    SQLSetConnectAttr(hdbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
-
-
-
-    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
-
-    // Utiliser l'authentification Windows intégrée
-    SQLSetConnectAttr(hDbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
-
-    // Établir la connexion
-    SQLRETURN retcode = SQLConnect(hDbc, dsn, SQL_NTS, NULL, 0, NULL, 0);
 
 
     if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
@@ -124,8 +96,7 @@ SQLHSTMT AccesBDD::conextion(){
 
         std::cerr << "Erreur SQL : " << errMsg << std::endl;
     }
-    
-    // Libération des ressources
+
     return hStmt;
     SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
     SQLDisconnect(hDbc);
@@ -227,3 +198,45 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete
     return retour;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * 
+
+    SQLHENV henv;
+    SQLHDBC hdbc;
+    SQLHSTMT hstmt;
+
+    // Allouer et initialiser l'environnement ODBC
+    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &henv);
+    SQLSetEnvAttr(henv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, SQL_IS_UINTEGER);
+
+    // Allouer et initialiser la connexion ODBC
+    SQLAllocHandle(SQL_HANDLE_DBC, henv, &hdbc);
+
+    // Spécifier le DSN (Data Source Name) ou la chaîne de connexion (remplacez "YourDSN" par votre DSN)
+    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
+
+    // Utiliser l'authentification Windows intégrée
+    SQLSetConnectAttr(hdbc, , (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
+
+
+
+    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
+
+    // Utiliser l'authentification Windows intégrée
+    SQLSetConnectAttr(hDbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
+
+    // Établir la connexion
+    SQLRETURN retcode = SQLConnect(hDbc, dsn, SQL_NTS, NULL, 0, NULL, 0);
+
+ */

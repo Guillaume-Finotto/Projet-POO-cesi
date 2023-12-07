@@ -121,7 +121,6 @@
     <ClCompile Include="Accueil.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Cl_Stat.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Manager.cpp" />
@@ -133,7 +132,6 @@
     <ClCompile Include="sousCommande.cpp" />
 >>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
     <ClCompile Include="Statistique.cpp" />
-    <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccesBDD.h" />
@@ -163,7 +161,13 @@
     <ClInclude Include="Statistique.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Stock1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+=======
     <ClInclude Include="stats.h" />
+>>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />

@@ -1,8 +1,9 @@
 ﻿#include "MyForm.h"
-#include "Article.h"#inc
+#include "Article.h"
 #include "Personel.h"
 using namespace System; 
 using namespace System::Windows::Forms;
+
 
 
 int main()
@@ -24,4 +25,3 @@ int main()
 
     return 0;
 }
-
