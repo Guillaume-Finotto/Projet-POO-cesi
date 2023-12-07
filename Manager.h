@@ -5,13 +5,13 @@
 
 
 enum collone;
-const vector<string> coloneArticle = { "ID","Nom","Nature","Couleur","PrixHT","PrixTTC","Qte_stocker","seuil_reappro","taux_TVA","Prix_variable","Prix_fournisseur","en_vente" };
+Array < String^> coloneArticle = {  "ID","Nom","Nature","Couleur","PrixHT","PrixTTC","Qte_stocker","seuil_reappro","taux_TVA","Prix_variable","Prix_fournisseur","en_vente" };
 
-const vector<string> colonePersonnel = {"ID","Nom","Prenom","Poste","Adresse""Date_embauche","ID_superieur" };
+Array < String^> colonePersonnel = {"ID","Nom","Prenom","Poste","Adresse""Date_embauche","ID_superieur" };
 
-const vector<string> coloneClient = { "ID","Nom","Prenom","Adresse_facturation","Adresse_livraison","Date_de_naissance","Premier_achat","client_inscrit" };
+Array < String^>coloneClient = { "ID","Nom","Prenom","Adresse_facturation","Adresse_livraison","Date_de_naissance","Premier_achat","client_inscrit" };
 
-const vector<string> coloneCommande = { "ID","Date_livraison","Date_paiement","Date_emission","Reference""Remise""Date_creation_commande","ID_client","ID_Personnel" };
+Array < String^> coloneCommande = { "ID","Date_livraison","Date_paiement","Date_emission","Reference""Remise""Date_creation_commande","ID_client","ID_Personnel" };
 
 
  ref class  Manager
