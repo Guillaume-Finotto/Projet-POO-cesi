@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Statistique.h"
-#include "InterfaceMode.h"
+#include "Interface.h"
 
 
 namespace ProjetPOO {
@@ -218,7 +218,7 @@ namespace ProjetPOO {
 		this->Show();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("InterfaceMode",Table::Client);
+		Interface^ face = gcnew Interface("Client",Table::Client);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();

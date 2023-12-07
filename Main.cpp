@@ -1,6 +1,7 @@
 ﻿#include "MyForm.h"
 #include "Article.h"
 #include "Personel.h"
+#include "Interface.h"
 using namespace System; 
 using namespace System::Windows::Forms;
 using namespace std;
@@ -28,6 +29,13 @@ int main()
     // Remplacez MyForm par le nom réel de votre formulaire
     ProjetPOO::MyForm^ mainForm = gcnew ProjetPOO::MyForm();
     Application::Run(mainForm);
+
+    // Créez une instance de AccesBDD
+    AccesBDD* monBDD = new AccesBDD(/* paramètres de construction éventuels */);
+
+    // Créez une instance de Table (assurez-vous de définir correctement votre constructeur)
+    Table maTable = Table(/* paramètres de construction éventuels */);
+
 
     return 0;
 }

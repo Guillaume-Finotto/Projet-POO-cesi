@@ -114,7 +114,7 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
     }
     
     if (!flatData.empty()) {
-        // Supprimer le dernier caractère
+        // Supprimer le dernier caractï¿½re
         flatData.erase(flatData.size() - 1);
     }
     
@@ -290,20 +290,20 @@ List<List<String^>^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
     // Allouer et initialiser la connexion ODBC
     SQLAllocHandle(SQL_HANDLE_DBC, henv, &hdbc);
 
-    // Spécifier le DSN (Data Source Name) ou la chaîne de connexion (remplacez "YourDSN" par votre DSN)
+    // Spï¿½cifier le DSN (Data Source Name) ou la chaï¿½ne de connexion (remplacez "YourDSN" par votre DSN)
     SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
 
-    // Utiliser l'authentification Windows intégrée
+    // Utiliser l'authentification Windows intï¿½grï¿½e
     SQLSetConnectAttr(hdbc, , (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
 
 
 
     SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
 
-    // Utiliser l'authentification Windows intégrée
+    // Utiliser l'authentification Windows intï¿½grï¿½e
     SQLSetConnectAttr(hDbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
 
-    // Établir la connexion
+    // ï¿½tablir la connexion
     SQLRETURN retcode = SQLConnect(hDbc, dsn, SQL_NTS, NULL, 0, NULL, 0);
 
  */

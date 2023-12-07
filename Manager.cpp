@@ -13,7 +13,7 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
 {
     if (Acces_BDD == nullptr)
     {
-        std::cout << "Base De Donner Non crée";
+        std::cout << "Base De Donner Non crÃ©e";
         
     }
     attributs = BDD->effectuerRequeteSQL("SELECT * FROM" + BDD->getref(Manager::type) + "WHERE id = " + std::to_string(id))[0];
