@@ -36,13 +36,14 @@ public:
     void ajouterDansBDD(Table table, vector<string> valeurs); 
 
     vector<string> effectuerRequeteSQL(string requete);
+    string getref(Table a);
 
 private:
     SQLHENV hEnv;
     SQLHDBC hDbc;
     SQLHSTMT hStmt;
 
-    string getref(Table a);
+    
 
-    const   char*  const AccesBDD::Tableref[5] = {  "personnel","client" ,"commande","article","sous_Commande" };
+    const   char*  const AccesBDD::Tableref[5] = {"personnel","client" ,"commande","article","sous_Commande" };
 };

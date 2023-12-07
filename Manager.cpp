@@ -18,6 +18,19 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
 }
 
 
+void Manager::ajouter()
+{
+
+}
+
+void Manager::detruire()
+{
+}
+
+void Manager::afficher()
+{
+}
+
 
 void Manager::setattribut(collone col, std::string valeur)
 { 
