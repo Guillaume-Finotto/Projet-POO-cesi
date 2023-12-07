@@ -1,107 +1,85 @@
 #include "AccesBDD.h"
-
-
-
+#include <string>
+#include <iso646.h>
+#include <msclr/marshal_cppstd.h>
+using namespace msclr::interop;
 AccesBDD::AccesBDD()
 {
-
-    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv);
-    SQLSetEnvAttr(hEnv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0);
-
-
-    SQLAllocHandle(SQL_HANDLE_DBC, hEnv, &hDbc);
-
-
-    // IMPORTANT ////////////////////////////////////////
-
-    SQLWCHAR* connectionString = L"DSN=servPOO;DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
-
-    ////////////////////////////////////////////////////
-
-
-    SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
-
-    if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
-        // Obtenir des informations détaillées sur l'erreur
-        SQLWCHAR sqlState[6];
-        SQLINTEGER nativeError;
-        SQLWCHAR messageText[256];
-        SQLSMALLINT textLength;
-
-        SQLGetDiagRec(SQL_HANDLE_DBC, hDbc, 1, sqlState, &nativeError, messageText, sizeof(messageText), &textLength);
-
-        std::wcerr << "Erreur lors de la connexion à la base de données." << std::endl;
-        std::wcerr << "État SQL: " << sqlState << std::endl;
-        std::wcerr << "Code d'erreur natif: " << nativeError << std::endl;
-        std::wcerr << "Message d'erreur: " << messageText << std::endl;
-
-        // Libération des ressources en cas d'erreur
-        SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
-        SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
-
-        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
-
-
-    }
-
-    deconextion();
+   
+        sqlConnHandle = NULL;
+    sqlStmtHandle = NULL;
+    //allocations
+    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
+        deconextion();
+    if (SQL_SUCCESS != SQLSetEnvAttr(sqlEnvHandle, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0))
+        deconextion();
+    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
+        deconextion();
+    
 }
+
 
 void AccesBDD::deconextion()
 {
+    sqlConnHandle = NULL;
+    sqlStmtHandle = NULL;
+    //allocations
+    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
+        deconextion();
+    if (SQL_SUCCESS != SQLSetEnvAttr(sqlEnvHandle, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0))
+        deconextion();
+    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
+        deconextion();
 
+    SQLFreeHandle(SQL_HANDLE_STMT, sqlStmtHandle);
+    SQLDisconnect(sqlConnHandle);
+    SQLFreeHandle(SQL_HANDLE_DBC, sqlConnHandle);
+    SQLFreeHandle(SQL_HANDLE_ENV, sqlEnvHandle);
 
-    SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
-    SQLDisconnect(hDbc);
-    SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
-    SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 }
 
-SQLHSTMT AccesBDD::conextion(){
+void AccesBDD::conextion(){
+    
+    cout << "Attempting connection to SQL Server...";
+    cout << "\n";
+    //connect to SQL Server  
+    //I am using a trusted connection and port 14808
+    //it does not matter if you are using default or named instance
+    //just make sure you define the server name and the port
+    //You have the option to use a username/password instead of a trusted connection
+    //but is more secure to use a trusted connection
 
-   
-
-    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv);
-    SQLSetEnvAttr(hEnv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0);
-
-
-    SQLAllocHandle(SQL_HANDLE_DBC, hEnv, &hDbc);
-
-
-    // IMPORTANT ////////////////////////////////////////
-
-    SQLWCHAR* connectionString = L"DSN=servPOO;DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
-
-	////////////////////////////////////////////////////
-
-
-    SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
-
-
-
-    if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
-
-        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
-        
+    switch (SQLDriverConnect(sqlConnHandle,
+        NULL,
+        //(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=master;UID=username;PWD=password;",
+        (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost\\mssqlserver01;DATABASE=ProjetPOO;Trusted=true;",
+        SQL_NTS,
+        retconstring,
+        1024,
+        NULL,
+        SQL_DRIVER_NOPROMPT)) {
+    case SQL_SUCCESS:
+        cout << "Successfully connected to SQL Server";
+        cout << "\n";
+        break;
+    case SQL_SUCCESS_WITH_INFO:
+        cout << "Successfully connected to SQL Server";
+        cout << "\n";
+        break;
+    case SQL_INVALID_HANDLE:
+        cout << "Could not connect to SQL Server";
+        cout << "\n";
+        deconextion();
+    case SQL_ERROR:
+        cout << "Could not connect to SQL Server";
+        cout << "\n";
+        deconextion();
+    default:
+        break;
     }
+    //if there is a problem connecting then exit application
+    SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_STMT, sqlConnHandle, &sqlStmtHandle);
 
-    SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
-    if (true ){
-        SQLWCHAR sqlState[8];
-        SQLINTEGER nativeError;
-        SQLWCHAR errMsg[SQL_MAX_MESSAGE_LENGTH];
-        SQLSMALLINT msgLength;
-
-        SQLError(hEnv, hDbc, hStmt, sqlState, &nativeError, errMsg, SQL_MAX_MESSAGE_LENGTH, &msgLength);
-
-        std::cerr << "Erreur SQL : " << errMsg << std::endl;
-    }
-
-    return hStmt;
-    SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
-    SQLDisconnect(hDbc);
-    SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
-    SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 
 }
 
@@ -156,47 +134,40 @@ string AccesBDD::getref(Table a)
 }
 
 
-
-std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete)
-{
-    SQLHSTMT  hStmt;
-    hStmt = conextion();
-    // Exemple de requête SQL (remplacez par votre propre requête)
-    SQLWCHAR* query = (SQLWCHAR*)"SELECT * from personnel";
-    //cout << std::string(reinterpret_cast<char*>(reinterpret_cast<wchar_t*>(query)));
-    SQLRETURN ret;
+Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
+{  //output
+    conextion();
+    Collections::Generic::List<String^>^ listee = gcnew Collections::Generic::List<String^>();
     
-    ret = SQLExecDirect(hStmt, query, SQL_NTS);
-    cout << ret;
-    // Récupération des résultats
-    SQLCHAR buffer[256];
-    SQLLEN indicator;
-    SQLRETURN ret2 ;
-
-
-    std::vector<std::string> retour;
-    std::string ajout;
-    
-    while ((ret2 = SQLFetch(hStmt)) == SQL_SUCCESS || ret2 == SQL_SUCCESS_WITH_INFO) {
-        SQLGetData(hStmt, 1, SQL_C_CHAR, buffer, sizeof(buffer), &indicator);
-        std::cout << indicator << buffer << std::endl;
-        if (indicator != SQL_NULL_DATA) {
-            std::cout << "Colonne 1 : " << buffer << std::endl;
-            ajout = std::string(reinterpret_cast<char*>(buffer));
-            retour.push_back(ajout);
-        }
-        else {
-            std::cout << "VIDE" << std::endl;
-        }
-
-        int out = SQLFetch(hStmt);
-        // Répétez le processus pour d'autres colonnes si nécessaire
+    cout << "\n";
+    cout << "Executing T-SQL query...";
+    cout << "\n";
+    //if there is a problem executing the query then exit application
+    //else display query result
+    if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR*)requete.c_str(), SQL_NTS)) {
+        cout << "Error querying SQL Server";
+        cout << "\n";
+        deconextion();
     }
+    else {
+        //declare output variable and pointer
+        SQLCHAR buffer[SQL_RESULT_LEN];
+        SQLLEN ptrSqlVersion;
+        SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
 
-    std::cout << ret2 << std::endl;
+        // Convert SQLCHAR to String^
+        String^ result = marshal_as<String^>(reinterpret_cast<const char*>(buffer));
+
+        while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
+            SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
+            //display query result
+            cout << "\nQuery Result:\n\n";
+            listee->Add(result);
+            cout << buffer << endl;
+        }
+    }
     deconextion();
-    return retour;
-
+    return listee;
 }
 
 

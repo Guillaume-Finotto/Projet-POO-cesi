@@ -3,7 +3,7 @@
 #include "Personel.h"
 using namespace System; 
 using namespace System::Windows::Forms;
-
+using namespace std;
 
 
 int main()
@@ -12,7 +12,7 @@ int main()
     AccesBDD* basePrincipale = &AccesBDD();
     vector<string> a = { "Michel","David","chef","nulaprt",""};
     basePrincipale->ajouterDansBDD(Table::Personnel, a);
-    std::cout << basePrincipale->effectuerRequeteSQL("SELECT * FROM projetPOO.personnel").size();
+    basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel");
 
 
     Application::EnableVisualStyles();
