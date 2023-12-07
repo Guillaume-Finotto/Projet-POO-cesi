@@ -1,5 +1,6 @@
 #pragma once
 #include "Manager.h"
+#include "sousCommande.h"
 class Commande :
     public Manager
 {
@@ -20,5 +21,6 @@ public:
 
 private:
     std::string  TypeEtTable = "Commande";
+     vector<sousCommande> contient;
 };
 

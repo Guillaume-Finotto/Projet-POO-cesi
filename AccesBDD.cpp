@@ -4,7 +4,6 @@
 
 AccesBDD::AccesBDD()
 {
-    std::string t;
 
     SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv);
     SQLSetEnvAttr(hEnv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0);
@@ -15,15 +14,15 @@ AccesBDD::AccesBDD()
 
     // IMPORTANT ////////////////////////////////////////
 
-    SQLWCHAR* connectionString = (SQLWCHAR*)L"UID=GuillaumeF\\jeuxd;DSN=servPOO;SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
+    SQLWCHAR* connectionString = L"DSN=servPOO;DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
 
-	////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
 
 
     SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
 
     if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
-        // Obtenir des informations dï¿½taillï¿½es sur l'erreur
+        // Obtenir des informations détaillées sur l'erreur
         SQLWCHAR sqlState[6];
         SQLINTEGER nativeError;
         SQLWCHAR messageText[256];
@@ -31,39 +30,121 @@ AccesBDD::AccesBDD()
 
         SQLGetDiagRec(SQL_HANDLE_DBC, hDbc, 1, sqlState, &nativeError, messageText, sizeof(messageText), &textLength);
 
-        std::wcerr << "Erreur lors de la connexion ï¿½ la base de donnï¿½es." << std::endl;
-        std::wcerr << "ï¿½tat SQL: " << sqlState << std::endl;
+        std::wcerr << "Erreur lors de la connexion à la base de données." << std::endl;
+        std::wcerr << "État SQL: " << sqlState << std::endl;
         std::wcerr << "Code d'erreur natif: " << nativeError << std::endl;
         std::wcerr << "Message d'erreur: " << messageText << std::endl;
 
-        // Libï¿½ration des ressources en cas d'erreur
+        // Libération des ressources en cas d'erreur
         SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
         SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 
-        std::cerr << "Erreur lors de la connexion ï¿½ la base de donnï¿½es. : " << ret << std::endl;
-        std::cin >> t;
-        std::cout << t;
-        
+        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
+
+
     }
 
-    // Crï¿½ation d'une dï¿½claration
-    SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
-    effectuerRequeteSQL("select * from personnel;");
-
+    deconextion();
 }
 
-AccesBDD::~AccesBDD()
+void AccesBDD::deconextion()
 {
-    // Libï¿½ration des ressources
+
+
     SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
     SQLDisconnect(hDbc);
     SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
     SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 }
 
+SQLHSTMT AccesBDD::conextion(){
+
+   
+
+    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv);
+    SQLSetEnvAttr(hEnv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0);
+
+
+    SQLAllocHandle(SQL_HANDLE_DBC, hEnv, &hDbc);
+
+
+    // IMPORTANT ////////////////////////////////////////
+
+    SQLWCHAR* connectionString = L"DSN=servPOO;DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
+
+	////////////////////////////////////////////////////
+
+
+    //SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
+
+
+
+    SQLHENV henv;
+    SQLHDBC hdbc;
+    SQLHSTMT hstmt;
+
+    // Allouer et initialiser l'environnement ODBC
+    SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &henv);
+    SQLSetEnvAttr(henv, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, SQL_IS_UINTEGER);
+
+    // Allouer et initialiser la connexion ODBC
+    SQLAllocHandle(SQL_HANDLE_DBC, henv, &hdbc);
+
+    // Spécifier le DSN (Data Source Name) ou la chaîne de connexion (remplacez "YourDSN" par votre DSN)
+    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
+
+    // Utiliser l'authentification Windows intégrée
+    SQLSetConnectAttr(hdbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
+
+
+
+    SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
+
+    // Utiliser l'authentification Windows intégrée
+    SQLSetConnectAttr(hDbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
+
+    // Établir la connexion
+    SQLRETURN retcode = SQLConnect(hDbc, dsn, SQL_NTS, NULL, 0, NULL, 0);
+
+
+    if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
+
+        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
+        
+    }
+
+    SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
+    if (true ){
+        SQLWCHAR sqlState[8];
+        SQLINTEGER nativeError;
+        SQLWCHAR errMsg[SQL_MAX_MESSAGE_LENGTH];
+        SQLSMALLINT msgLength;
+
+        SQLError(hEnv, hDbc, hStmt, sqlState, &nativeError, errMsg, SQL_MAX_MESSAGE_LENGTH, &msgLength);
+
+        std::cerr << "Erreur SQL : " << errMsg << std::endl;
+    }
+    
+    // Libération des ressources
+    return hStmt;
+    SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
+    SQLDisconnect(hDbc);
+    SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
+    SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
+
+}
+
+
+
+AccesBDD::~AccesBDD()
+{
+
+}
+
 void AccesBDD::suprimerDansBDD(Table table, unsigned int ID)
 {
     suprimerDansBDD(table, to_string(ID));
+
 }
 
 void AccesBDD::suprimerDansBDD(Table table, string ID)
@@ -77,14 +158,14 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
 {
 
     std::string flatData = "";
-    for(size_t i; i<valeurs.size();i++)
+    for(int i; i<valeurs.size();i++)
     {
         flatData = flatData + "'"+ valeurs[i]+"'" +",";
 
     }
     
     if (!flatData.empty()) {
-        // Supprimer le dernier caractï¿½re
+        // Supprimer le dernier caractère
         flatData.erase(flatData.size() - 1);
     }
     
@@ -104,19 +185,23 @@ string AccesBDD::getref(Table a)
 }
 
 
+
 std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete)
 {
-
-    // Exemple de requï¿½te SQL (remplacez par votre propre requï¿½te)
-    SQLWCHAR* query = (SQLWCHAR*)requete.c_str();
-    cout << std::string(reinterpret_cast<char*>(reinterpret_cast<wchar_t*>(query)));
+    SQLHSTMT  hStmt;
+    hStmt = conextion();
+    // Exemple de requête SQL (remplacez par votre propre requête)
+    SQLWCHAR* query = (SQLWCHAR*)"SELECT * from personnel";
+    //cout << std::string(reinterpret_cast<char*>(reinterpret_cast<wchar_t*>(query)));
     SQLRETURN ret;
+    
     ret = SQLExecDirect(hStmt, query, SQL_NTS);
     cout << ret;
-    // Rï¿½cupï¿½ration des rï¿½sultats
+    // Récupération des résultats
     SQLCHAR buffer[256];
     SQLLEN indicator;
     SQLRETURN ret2 ;
+
 
     std::vector<std::string> retour;
     std::string ajout;
@@ -134,11 +219,11 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete
         }
 
         int out = SQLFetch(hStmt);
-        // Rï¿½pï¿½tez le processus pour d'autres colonnes si nï¿½cessaire
+        // Répétez le processus pour d'autres colonnes si nécessaire
     }
 
     std::cout << ret2 << std::endl;
-
+    deconextion();
     return retour;
 
 }

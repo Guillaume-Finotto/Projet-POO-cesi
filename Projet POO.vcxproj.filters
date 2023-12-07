@@ -57,7 +57,10 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="AjouterClientDialog.cpp">
+    <ClCompile Include="Cl_Stat.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="stats.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,10 +86,13 @@
     <ClInclude Include="Main.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Commande1.h">
+      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
     <ClInclude Include="Accueil.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceMode.h">
+    <ClInclude Include="CLient1.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="MyForm.h">
@@ -95,7 +101,13 @@
     <ClInclude Include="Statistique.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="AjouterClientDialog.h">
+    <ClInclude Include="Personnel.h">
+      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock1.h">
+      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
+    <ClInclude Include="stats.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

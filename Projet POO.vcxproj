@@ -119,36 +119,46 @@
   <ItemGroup>
     <ClCompile Include="AccesBDD.cpp" />
     <ClCompile Include="Accueil.cpp" />
-    <ClCompile Include="AjouterClientDialog.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Cl_Stat.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personel.cpp" />
+    <ClCompile Include="sousCommande.cpp" />
     <ClCompile Include="Statistique.cpp" />
+    <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccesBDD.h" />
     <ClInclude Include="Accueil.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="AjouterClientDialog.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
-    <ClInclude Include="InterfaceMode.h">
+    <ClInclude Include="CLient1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Commande.h" />
+    <ClInclude Include="Commande1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Personel.h" />
+    <ClInclude Include="Personnel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="sousCommande.h" />
     <ClInclude Include="Statistique.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="stats.h" />
+    <ClInclude Include="Stock1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -163,17 +173,23 @@
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterClientDialog.resx">
-      <DependentUpon>AjouterClientDialog.h</DependentUpon>
+    <EmbeddedResource Include="CLient1.resx">
+      <DependentUpon>CLient1.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceMode.resx">
-      <DependentUpon>InterfaceMode.h</DependentUpon>
+    <EmbeddedResource Include="Commande1.resx">
+      <DependentUpon>Commande1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Personnel.resx">
+      <DependentUpon>Personnel.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Statistique.resx">
       <DependentUpon>Statistique.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock1.resx">
+      <DependentUpon>Stock1.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

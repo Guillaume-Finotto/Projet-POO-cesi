@@ -21,6 +21,7 @@ public:
         en_vente
     };
 private:
+    
     Table Type = Table::Article;
     /*
     vector<string> collone ={
