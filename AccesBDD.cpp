@@ -130,7 +130,7 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
 string AccesBDD::getref(Table a)
 {
     
-    return Tableref[a];
+    return AccesBDD::Tableref[a];
 }
 
 

@@ -58,5 +58,5 @@ private:
     SQLHANDLE sqlEnvHandle;
     SQLWCHAR retconstring[SQL_RETURN_CODE_LEN];
 
-    const   char*  const AccesBDD::Tableref[5] = {"personnel","client" ,"commande","article","sous_Commande" };
+	char*  const AccesBDD::Tableref[5] = {"personnel","client" ,"commande","article","sous_Commande" };
 };
