@@ -206,25 +206,25 @@ namespace ProjetPOO {
 		this->Show();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Stock", Table::Article);
+		Interface^ face = gcnew Interface("Stock", Table::Article, coloneArticle);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();;
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Commande", Table::Commande);
+		Interface^ face = gcnew Interface("Commande", Table::Commande, coloneCommande);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Client",Table::Client);
+		Interface^ face = gcnew Interface("Client",Table::Client, coloneClient);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
 }
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Personnel", Table::Personnel);
+		Interface^ face = gcnew Interface("Personnel", Table::Personnel, colonePersonnel);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
