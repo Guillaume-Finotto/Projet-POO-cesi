@@ -123,6 +123,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="InterfaceClient.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personel.cpp" />
@@ -139,6 +140,9 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Interface.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfaceClient.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Main.h" />
@@ -174,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface.resx">
       <DependentUpon>Interface.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceClient.resx">
+      <DependentUpon>InterfaceClient.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
