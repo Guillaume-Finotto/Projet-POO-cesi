@@ -150,13 +150,10 @@
     <ClInclude Include="Statistique.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Stock1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-=======
     <ClInclude Include="stats.h" />
->>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
