@@ -18,11 +18,12 @@ namespace ProjetPOO {
 	public ref class Interface : public System::Windows::Forms::Form
 	{
 	public:
-		Interface(std::string type, Table table)
+		Interface(std::string type, Table table, List<String^>^ colonne)
 		{
 			BDD = new AccesBDD();
-			InitializeComponent(type, table);
+			InitializeComponent(type, table, colonne);
 			this->table = table;
+			this->colonne = colonne;
 		}
 
 	protected:
@@ -39,6 +40,7 @@ namespace ProjetPOO {
 		}
 
 	private: AccesBDD* BDD;
+	private: List<String^>^ colonne;
 	private: Table table;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ RETOUR;
@@ -61,7 +63,7 @@ namespace ProjetPOO {
 		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
 		/// le contenu de cette méthode avec l'éditeur dsde.
 		/// </summary>
-		void InitializeComponent(std::string type, Table table)
+		void InitializeComponent(std::string type, Table table, List<String^>^ colonne)
 		{
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->RETOUR = (gcnew System::Windows::Forms::Button());
@@ -198,20 +200,23 @@ namespace ProjetPOO {
 		   }
 
 		private: System::Void Interface_Load(System::Object^ sender, System::EventArgs^ e) {
-		ChargerDonneesDansDataGridView(table);
+			ChargerDonneesDansDataGridView(table, colonne);
 		}
 
-		private:
-		// ... Autres membres de la classe
 
-		void ChargerDonneesDansDataGridView(Table table)
-		{
-			// Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
-			List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+			   void ChargerDonneesDansDataGridView(Table table, List<String^>^ colonne)
+			   {
+				   // Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
+				   List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
 
-			// Créez les colonnes de la DataGridView (vous devrez ajuster cela en fonction de votre modèle de données)
-			this->dataGridView1->Columns->Clear();
-			this->dataGridView1->Columns->Add("Nom", "Nom");
+				   // Créez les colonnes de la DataGridView (vous devrez ajuster cela en fonction de votre modèle de données)
+				   this->dataGridView1->Columns->Clear();
+
+				   for (int i = 0; i < colonne->Count; i++)
+				   {
+					   this->dataGridView1->Columns->Add(gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+					   this->dataGridView1->Columns[i]->HeaderText = colonne[i];
+				   }
 
 			// Ajoutez les données à la DataGridView
 			for each (List<String^> ^ liste in donnees)
@@ -219,5 +224,7 @@ namespace ProjetPOO {
 				this->dataGridView1->Rows->Add(String::Join("\t", liste->ToArray()));
 			}
 		}
-	};
+	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
