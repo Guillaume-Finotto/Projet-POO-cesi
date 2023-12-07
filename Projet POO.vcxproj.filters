@@ -57,6 +57,9 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h">
@@ -92,14 +95,17 @@
     <ClInclude Include="MyForm.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
+    <ClInclude Include="Statistique.h">
+      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
     <ClInclude Include="Personnel.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Stock1.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="Statistique.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    <ClInclude Include="Stat.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
