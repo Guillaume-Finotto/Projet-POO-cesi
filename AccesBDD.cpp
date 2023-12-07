@@ -15,7 +15,7 @@ AccesBDD::AccesBDD()
 
     // IMPORTANT ////////////////////////////////////////
 
-    SQLWCHAR* connectionString = (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
+    SQLWCHAR* connectionString = (SQLWCHAR*)L"UID=GuillaumeF\\jeuxd;DSN=servPOO;SERVER=localhost\\MSSQLSERVER01;DATABASE=ProjetPOO;Trusted_Connection=yes;";
 
 	////////////////////////////////////////////////////
 
@@ -48,6 +48,7 @@ AccesBDD::AccesBDD()
 
     // Création d'une déclaration
     SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
+    effectuerRequeteSQL("select * from personnel;");
 
 }
 
@@ -81,14 +82,15 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
         flatData = flatData + "'"+ valeurs[i]+"'" +",";
 
     }
-    cout << flatData;
+    
     if (!flatData.empty()) {
         // Supprimer le dernier caractère
         flatData.erase(flatData.size() - 1);
     }
     
     try{
-		effectuerRequeteSQL("INSERT INTO" + getref(table) + " VALUES (" + flatData +");");
+
+		effectuerRequeteSQL(string()+"INSERT INTO " + string(getref(table)) + " VALUES (" + flatData +");");
     }
     catch (const exception& e) { cout << "Une erreur est survenu lors de l'ajout d'un element dans la BDD :" << e.what() << endl; }
 
@@ -97,27 +99,29 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
 
 string AccesBDD::getref(Table a)
 {
+    
     return Tableref[a];
 }
 
 
-std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
+std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete)
 {
 
     // Exemple de requête SQL (remplacez par votre propre requête)
     SQLWCHAR* query = (SQLWCHAR*)requete.c_str();
-    SQLExecDirect(hStmt, query, SQL_NTS);
-
+    cout << std::string(reinterpret_cast<char*>(reinterpret_cast<wchar_t*>(query)));
+    SQLRETURN ret;
+    ret = SQLExecDirect(hStmt, query, SQL_NTS);
+    cout << ret;
     // Récupération des résultats
-    SQLCHAR buffer[1024];
+    SQLCHAR buffer[256];
     SQLLEN indicator;
-    SQLRETURN ret2 = SQLFetch(hStmt);
+    SQLRETURN ret2 ;
 
     std::vector<std::string> retour;
     std::string ajout;
-
+    
     while ((ret2 = SQLFetch(hStmt)) == SQL_SUCCESS || ret2 == SQL_SUCCESS_WITH_INFO) {
-
         SQLGetData(hStmt, 1, SQL_C_CHAR, buffer, sizeof(buffer), &indicator);
         std::cout << indicator << buffer << std::endl;
         if (indicator != SQL_NULL_DATA) {
@@ -125,13 +129,15 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(std::string requete)
             ajout = std::string(reinterpret_cast<char*>(buffer));
             retour.push_back(ajout);
         }
-        else { std::cout << " VIDE "; }
+        else {
+            std::cout << "VIDE" << std::endl;
+        }
 
         int out = SQLFetch(hStmt);
         // Répétez le processus pour d'autres colonnes si nécessaire
     }
 
-
+    std::cout << ret2 << std::endl;
 
     return retour;
 

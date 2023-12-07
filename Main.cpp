@@ -9,9 +9,9 @@ int main()
 {
     
     AccesBDD* basePrincipale = &AccesBDD();
-    vector<string> a = { "Michel","David","chef","nulaprt","15-08-2020"};
+    vector<string> a = { "Michel","David","chef","nulaprt",""};
     basePrincipale->ajouterDansBDD(Table::Personnel, a);
-    std::cout << basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel").size();
+    std::cout << basePrincipale->effectuerRequeteSQL("SELECT * FROM projetPOO.personnel").size();
 
 
     Application::EnableVisualStyles();
