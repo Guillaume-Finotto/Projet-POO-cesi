@@ -214,9 +214,9 @@ namespace ProjetPOO {
 			this->dataGridView1->Columns->Add("Nom", "Nom");
 
 			// Ajoutez les données à la DataGridView
-			for each (String ^ str in donnees)
+			for each (List<String^> ^ liste in donnees)
 			{
-				this->dataGridView1->Rows->Add(str);
+				this->dataGridView1->Rows->Add(String::Join("\t", liste->ToArray()));
 			}
 		}
 	};
