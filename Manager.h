@@ -2,6 +2,10 @@
 #include "AccesBDD.h"
 #include <string>
 #include <vector>
+
+
+
+
 class Manager
 {
 public:
@@ -17,18 +21,21 @@ public:
 	void detruire();
     void setattribut(collone col, std::string valeur);
 	void afficher();
-
+	
 
     std::string getAttribut(collone col);
 
 	std::vector<std::string> getAllAttribut();
 
-protected:
 
+protected:
+	
 	AccesBDD * BDD;
 	unsigned int id;
 	Table Type;
 
+	string* col;
+	
 	std::vector<std::string> valeurs;
 };
 

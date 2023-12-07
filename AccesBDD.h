@@ -20,7 +20,6 @@ enum Table
     Commande ,
     Article ,
     Sous_Commande
-
 };
 
 class AccesBDD {
@@ -31,18 +30,18 @@ public:
 
     void suprimerDansBDD(Table table, unsigned int ID);
     void suprimerDansBDD(Table table, string ID);
+    SQLHSTMT conextion();
+    void deconextion();
 
-
-    void ajouterDansBDD(Table table, vector<string> valeurs);
-
+    void ajouterDansBDD(Table table, vector<string> valeurs); 
 
     vector<string> effectuerRequeteSQL(string requete);
 
 private:
-
     SQLHENV hEnv;
     SQLHDBC hDbc;
     SQLHSTMT hStmt;
+
     string getref(Table a);
 
     const   char*  const AccesBDD::Tableref[5] = {  "personnel","client" ,"commande","article","sous_Commande" };
