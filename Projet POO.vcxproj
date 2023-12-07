@@ -126,11 +126,11 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personel.cpp" />
-<<<<<<< HEAD
+
     <ClCompile Include="Stat.cpp" />
-=======
+
     <ClCompile Include="sousCommande.cpp" />
->>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
+
     <ClCompile Include="Statistique.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,14 +150,13 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Personel.h" />
-<<<<<<< HEAD
+
     <ClInclude Include="Personnel.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Stat.h" />
-=======
     <ClInclude Include="sousCommande.h" />
->>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
+
     <ClInclude Include="Statistique.h">
       <FileType>CppForm</FileType>
     </ClInclude>
