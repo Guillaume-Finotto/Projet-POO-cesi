@@ -114,7 +114,7 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
     }
     
     if (!flatData.empty()) {
-        // Supprimer le dernier caractère
+        // Supprimer le dernier caractï¿½re
         flatData.erase(flatData.size() - 1);
     }
     
@@ -202,10 +202,10 @@ Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::st
         std::cout << requete;
         int requiredSize = MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, nullptr, 0);
 
-        // Allouez la mémoire tampon wchar_t
+        // Allouez la mï¿½moire tampon wchar_t
         wchar_t* wideBuffer = new wchar_t[requiredSize];
 
-        // Convertissez la chaîne multibyte en wide character
+        // Convertissez la chaï¿½ne multibyte en wide character
         MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, wideBuffer, requiredSize);
         SQLWCHAR* qwery = L"";
         if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR * )std::wstring(requete.begin(), requete.end()).c_str(), SQL_NTS)) {
@@ -300,20 +300,20 @@ Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::st
     // Allouer et initialiser la connexion ODBC
     SQLAllocHandle(SQL_HANDLE_DBC, henv, &hdbc);
 
-    // Spécifier le DSN (Data Source Name) ou la chaîne de connexion (remplacez "YourDSN" par votre DSN)
+    // Spï¿½cifier le DSN (Data Source Name) ou la chaï¿½ne de connexion (remplacez "YourDSN" par votre DSN)
     SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
 
-    // Utiliser l'authentification Windows intégrée
+    // Utiliser l'authentification Windows intï¿½grï¿½e
     SQLSetConnectAttr(hdbc, , (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
 
 
 
     SQLCHAR* dsn = (SQLCHAR*)"YourDSN";
 
-    // Utiliser l'authentification Windows intégrée
+    // Utiliser l'authentification Windows intï¿½grï¿½e
     SQLSetConnectAttr(hDbc, SQL_SERVER_AUTHENTICATION, (SQLPOINTER)SQL_NT_AUTHENTICATION, SQL_IS_INTEGER);
 
-    // Établir la connexion
+    // ï¿½tablir la connexion
     SQLRETURN retcode = SQLConnect(hDbc, dsn, SQL_NTS, NULL, 0, NULL, 0);
 
  */

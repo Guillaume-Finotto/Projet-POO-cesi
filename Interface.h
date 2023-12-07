@@ -2,6 +2,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "Manager.h"
 
+
 namespace ProjetPOO {
 
 	using namespace System;
@@ -19,9 +20,9 @@ namespace ProjetPOO {
 	public:
 		Interface(std::string type, Table table)
 		{
+			BDD = new AccesBDD();
 			InitializeComponent(type, table);
 			this->table = table;
-			this->BDD = BDD;
 		}
 
 	protected:
@@ -30,6 +31,7 @@ namespace ProjetPOO {
 		/// </summary>
 		~Interface()
 		{
+			delete BDD;
 			if (components)
 			{
 				delete components;
@@ -173,9 +175,9 @@ namespace ProjetPOO {
 		void ChargerDonneesDansListBox(Table table)
 		{
 			// Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
-			Collections::Generic::List<String^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+			Collections::Generic::List<String^>^ donnees = BDD->effectuerRequeteSQL((std::string)"SELECT nom FROM " + BDD->getref(table).c_str());
 
-
+			// Ajoutez les données à la listBox
 			for each (String ^ str in donnees)
 			{
 				listBox1->Items->Add(str);
