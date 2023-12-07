@@ -53,9 +53,6 @@ public:
     string getref(Table a);
 
 private:
-
-
-    //define handles and variables
     SQLHANDLE sqlConnHandle;
     SQLHANDLE sqlStmtHandle;
     SQLHANDLE sqlEnvHandle;

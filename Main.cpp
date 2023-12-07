@@ -5,6 +5,12 @@ using namespace System;
 using namespace System::Windows::Forms;
 using namespace std;
 
+//include the below additional libraries
+#include <iostream>
+#include <windows.h>
+#include <sqlext.h>
+#include <sqltypes.h>
+#include <sql.h>
 
 int main()
 {
@@ -13,7 +19,7 @@ int main()
     vector<string> a = { "Michel","David","chef","nulaprt",""};
     basePrincipale->ajouterDansBDD(Table::Personnel, a);
     basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel");
-
+    basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel");
 
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);

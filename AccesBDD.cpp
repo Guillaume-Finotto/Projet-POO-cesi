@@ -3,11 +3,18 @@
 #include <iso646.h>
 #include <msclr/marshal_cppstd.h>
 using namespace msclr::interop;
+
+using namespace std;
+#define SQL_RESULT_LEN 240
+#define SQL_RETURN_CODE_LEN 1000
+
+
 AccesBDD::AccesBDD()
 {
-   
-        sqlConnHandle = NULL;
+    sqlEnvHandle = NULL;
+    sqlConnHandle = NULL;
     sqlStmtHandle = NULL;
+
     //allocations
     if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
         deconextion();
@@ -21,15 +28,8 @@ AccesBDD::AccesBDD()
 
 void AccesBDD::deconextion()
 {
-    sqlConnHandle = NULL;
-    sqlStmtHandle = NULL;
-    //allocations
-    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
-        deconextion();
-    if (SQL_SUCCESS != SQLSetEnvAttr(sqlEnvHandle, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0))
-        deconextion();
-    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
-        deconextion();
+
+
 
     SQLFreeHandle(SQL_HANDLE_STMT, sqlStmtHandle);
     SQLDisconnect(sqlConnHandle);
@@ -136,6 +136,112 @@ string AccesBDD::getref(Table a)
 
 Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
 {  //output
+    Collections::Generic::List<String^>^ listee = gcnew Collections::Generic::List<String^>();
+
+//use the std namespace
+
+
+        //define handles and variables
+
+        //initializations
+        sqlConnHandle = NULL;
+        sqlStmtHandle = NULL;
+        //allocations
+        if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
+             deconextion();
+        if (SQL_SUCCESS != SQLSetEnvAttr(sqlEnvHandle, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0))
+             deconextion();
+        if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
+            deconextion();
+        //output
+        cout << "Attempting connection to SQL Server...";
+        cout << "\n";
+        //connect to SQL Server  
+        //I am using a trusted connection and port 14808
+        //it does not matter if you are using default or named instance
+        //just make sure you define the server name and the port
+        //You have the option to use a username/password instead of a trusted connection
+        //but is more secure to use a trusted connection
+        switch (SQLDriverConnect(sqlConnHandle,
+            NULL,
+            //(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=master;UID=username;PWD=password;",
+            (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost\\mssqlserver01;DATABASE=ProjetPOO;Trusted=true;",
+            SQL_NTS,
+            retconstring,
+            1024,
+            NULL,
+            SQL_DRIVER_NOPROMPT)) {
+        case SQL_SUCCESS:
+            cout << "Successfully connected to SQL Server";
+            cout << "\n";
+            break;
+        case SQL_SUCCESS_WITH_INFO:
+            cout << "Successfully connected to SQL Server";
+            cout << "\n";
+            break;
+        case SQL_INVALID_HANDLE:
+            cout << "Could not connect to SQL Server";
+            cout << "\n";
+            goto COMPLETED;
+        case SQL_ERROR:
+            cout << "Could not connect to SQL Server";
+            cout << "\n";
+            goto COMPLETED;
+        default:
+            break;
+        }
+        //if there is a problem connecting then exit application
+        if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_STMT, sqlConnHandle, &sqlStmtHandle))
+            goto COMPLETED;
+        //output
+        cout << "\n";
+        cout << "Executing T-SQL query...";
+        cout << "\n";
+        //if there is a problem executing the query then exit application
+        //else display query result
+        std::cout << requete;
+        int requiredSize = MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, nullptr, 0);
+
+        // Allouez la mémoire tampon wchar_t
+        wchar_t* wideBuffer = new wchar_t[requiredSize];
+
+        // Convertissez la chaîne multibyte en wide character
+        MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, wideBuffer, requiredSize);
+        SQLWCHAR* qwery = L"";
+        if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR * )std::wstring(requete.begin(), requete.end()).c_str(), SQL_NTS)) {
+            cout << "Error querying SQL Server";
+            cout << "\n";
+            deconextion();
+        }
+        else {
+           
+            //declare output variable and pointer
+            SQLCHAR buffer[SQL_RESULT_LEN];
+            SQLLEN ptrSqlVersion;
+            SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
+
+            // Convert SQLCHAR to String^
+            String^ result = marshal_as<String^>(reinterpret_cast<const char*>(buffer));
+
+            while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
+                SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
+                //display query result
+                cout << "\nQuery Result:\n\n";
+                listee->Add(result);
+                cout << buffer << endl;
+            }
+        }
+        //close connection and free resources
+    COMPLETED:
+        SQLFreeHandle(SQL_HANDLE_STMT, sqlStmtHandle);
+        SQLDisconnect(sqlConnHandle);
+        SQLFreeHandle(SQL_HANDLE_DBC, sqlConnHandle);
+        SQLFreeHandle(SQL_HANDLE_ENV, sqlEnvHandle);
+		
+        return listee;
+        //pause the console window - exit when key is pressed
+
+    };/*
     conextion();
     Collections::Generic::List<String^>^ listee = gcnew Collections::Generic::List<String^>();
     
@@ -167,8 +273,8 @@ Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::st
         }
     }
     deconextion();
-    return listee;
-}
+    return listee;*/
+
 
 
 
