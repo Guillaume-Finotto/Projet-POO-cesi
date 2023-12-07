@@ -121,14 +121,12 @@
     <ClCompile Include="Accueil.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Cl_Stat.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personel.cpp" />
     <ClCompile Include="sousCommande.cpp" />
     <ClCompile Include="Statistique.cpp" />
-    <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccesBDD.h" />
@@ -157,7 +155,6 @@
     <ClInclude Include="Statistique.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="stats.h" />
     <ClInclude Include="Stock1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
