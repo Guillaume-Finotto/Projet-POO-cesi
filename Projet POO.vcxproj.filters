@@ -5,7 +5,7 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête">
+    <Filter Include="Fichiers d'en-tête">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
@@ -13,13 +13,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\ClasseUtilisationBDD">
+    <Filter Include="Fichiers d'en-tête\ClasseUtilisationBDD">
       <UniqueIdentifier>{dce2ee47-9672-4fb6-8455-64a95dce2852}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse">
+    <Filter Include="Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse">
       <UniqueIdentifier>{9a388b27-cdbf-4c20-a648-8980df1db683}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Interface HM">
+    <Filter Include="Fichiers d'en-tête\Interface HM">
       <UniqueIdentifier>{d6312143-072d-4849-b9f9-7082a2a05032}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\DefClasse">
@@ -57,66 +57,56 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Stat.cpp">
-=======
     <ClCompile Include="Cl_Stat.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="stats.cpp">
->>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD</Filter>
     </ClInclude>
     <ClInclude Include="Article.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
     <ClInclude Include="AccesBDD.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD</Filter>
     </ClInclude>
     <ClInclude Include="Commande.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
     <ClInclude Include="Personel.h">
-      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
     <ClInclude Include="Main.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d'en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Commande1.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Accueil.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="CLient1.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="MyForm.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Statistique.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Personnel.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Stock1.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+      <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Stat.h">
-=======
+
     <ClInclude Include="stats.h">
->>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d'en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -25,7 +25,7 @@ int main()
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 
-
+    
     // Remplacez MyForm par le nom réel de votre formulaire
     ProjetPOO::MyForm^ mainForm = gcnew ProjetPOO::MyForm();
     Application::Run(mainForm);
