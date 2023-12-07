@@ -129,14 +129,16 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
 
 string AccesBDD::getref(Table a)
 {
-    
-    return AccesBDD::Tableref[a];
+    std::cout << a << "zerzer";
+    return Tableref[a];
 }
 
 
-Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
+List<List<String^>^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
 {  //output
-    Collections::Generic::List<String^>^ listee = gcnew Collections::Generic::List<String^>();
+
+
+    List<List<String^>^>^ listee = gcnew List<List<String^>^>;
 
 //use the std namespace
 
@@ -200,37 +202,25 @@ Collections::Generic::List<String^>^ AccesBDD::effectuerRequeteSQL(const std::st
         //if there is a problem executing the query then exit application
         //else display query result
         std::cout << requete;
-        int requiredSize = MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, nullptr, 0);
+        while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
+            int columns = 0;
+            SQLNumResultCols(sqlStmtHandle, (SQLSMALLINT*)&columns);
 
-        // Allouez la mémoire tampon wchar_t
-        wchar_t* wideBuffer = new wchar_t[requiredSize];
+            List<String^>^ row = gcnew List<String^>;
 
-        // Convertissez la chaîne multibyte en wide character
-        MultiByteToWideChar(CP_UTF8, 0, requete.c_str(), -1, wideBuffer, requiredSize);
-        SQLWCHAR* qwery = L"";
-        if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR * )std::wstring(requete.begin(), requete.end()).c_str(), SQL_NTS)) {
-            cout << "Error querying SQL Server";
-            cout << "\n";
-            deconextion();
-        }
-        else {
-           
-            //declare output variable and pointer
-            SQLCHAR buffer[SQL_RESULT_LEN];
-            SQLLEN ptrSqlVersion;
-            SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
+            for (int i = 1; i <= columns; ++i) {
+                SQLCHAR buffer[SQL_RESULT_LEN];
+                SQLLEN ptrSqlVersion;
+                SQLGetData(sqlStmtHandle, i, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
 
-            // Convert SQLCHAR to String^
-            String^ result = marshal_as<String^>(reinterpret_cast<const char*>(buffer));
-
-            while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
-                SQLGetData(sqlStmtHandle, 1, SQL_CHAR, buffer, SQL_RESULT_LEN, &ptrSqlVersion);
-                //display query result
-                cout << "\nQuery Result:\n\n";
-                listee->Add(result);
-                cout << buffer << endl;
+                // Convertir SQLCHAR en String^
+                String^ value = marshal_as<String^>(reinterpret_cast<const char*>(buffer));
+                row->Add(value);
             }
+
+            listee->Add(row);
         }
+
         //close connection and free resources
     COMPLETED:
         SQLFreeHandle(SQL_HANDLE_STMT, sqlStmtHandle);

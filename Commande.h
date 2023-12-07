@@ -1,12 +1,8 @@
 #pragma once
 #include "Manager.h"
 #include "sousCommande.h"
-class Commande :
-    public Manager
-{
-
-public:
-    enum collone {
+/*
+enum colloneCommande {
         ID,
         Date_livraison,
         Date_paiement,
@@ -16,11 +12,19 @@ public:
         Date_creation_commande,
         ID_client,
         ID_Personnel
-    };
+    };*/
 
+
+ref class Commande :
+     Manager
+{
+
+public:
+   
+    Commande(AccesBDD* bdd) : Manager(bdd){};
 
 private:
-    std::string  TypeEtTable = "Commande";
-     vector<sousCommande> contient;
+    String^ TypeEtTable = "Commande";
+     List<sousCommande^> contient;
 };
 

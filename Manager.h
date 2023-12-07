@@ -4,38 +4,38 @@
 #include <vector>
 
 
+enum collone;
 
 
-class Manager
+ ref class  Manager
 {
 public:
-
-	Manager(AccesBDD *Acces_BDD, unsigned int id=0);
-	virtual enum collone{teste,echec};
-
-	Manager* creeDepuisBDD(Table table, unsigned int ID);
-	Manager* creeDepuisBDD(Table table, string ID);
-
-
-    void ajouter();
-	void detruire();
-    void setattribut(collone col, std::string valeur);
-	void afficher();
+	
+	Manager(AccesBDD* Acces_BDD);
+	Manager(AccesBDD *Acces_BDD, unsigned int id);
 	
 
-    std::string getAttribut(collone col);
 
-	std::vector<std::string> getAllAttribut();
+
+    void ajouter(vector<string> data);
+	void detruire(unsigned int ID);
+    void setattribut(collone col, String^ valeur);
+
+
+
+    String^ getAttribut(collone col);
+
+	List<String^>^ getAllAttribut();
 
 
 protected:
 	
 	AccesBDD * BDD;
 	unsigned int id;
-	Table Type;
+	Table type;
 
 	string* col;
 	
-	std::vector<std::string> valeurs;
+	List<String^>^ attributs;
 };
 

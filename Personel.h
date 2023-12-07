@@ -1,9 +1,6 @@
 #pragma once
 #include "Manager.h"
-class Personel : Manager
-{
-public:
-    enum collone {
+enum collone {
         ID,
         Nom,
         Prenom,
@@ -12,8 +9,13 @@ public:
         Date_embauche,
         ID_superieur
     };
+ref class Personel : Manager
+{
+public:
+    Personel(AccesBDD* bdd) : Manager(bdd) {};
 private:
-    std::string TypeEtTable = "Personnel";
-    
+
+    static String^ TypeEtTable = "Personnel";
+
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "Manager.h"
 using namespace std;
-enum class collone2 {
+enum class colloneClient {
     ID,
     Nom,
     Prenom,
@@ -11,11 +11,11 @@ enum class collone2 {
     Premier_achat,
     client_inscrit
 };
-class Client : Manager
+ref class Client : Manager
 {
 
 	Client(AccesBDD* bdd,unsigned int id);
     
 private:
-    std::string  TypeEtTable = "Article";
+    String^  TypeEtTable = "Article";
 };

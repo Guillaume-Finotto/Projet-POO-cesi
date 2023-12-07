@@ -57,8 +57,14 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Cl_Stat.cpp">
+    <ClCompile Include="Interface.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sousCommande.cpp">
+      <Filter>Fichiers sources\DefClasse\classeFille</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +77,6 @@
     <ClInclude Include="Client.h">
       <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
-    <ClInclude Include="AccesBDD.h">
-      <Filter>Fichiers d'en-tête\ClasseUtilisationBDD</Filter>
-    </ClInclude>
     <ClInclude Include="Commande.h">
       <Filter>Fichiers d'en-tête\ClasseUtilisationBDD\SousClasse</Filter>
     </ClInclude>
@@ -83,13 +86,7 @@
     <ClInclude Include="Main.h">
       <Filter>Fichiers d'en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Commande1.h">
-      <Filter>Fichiers d'en-tête\Interface HM</Filter>
-    </ClInclude>
     <ClInclude Include="Accueil.h">
-      <Filter>Fichiers d'en-tête\Interface HM</Filter>
-    </ClInclude>
-    <ClInclude Include="CLient1.h">
       <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="MyForm.h">
@@ -104,9 +101,23 @@
     <ClInclude Include="Stock1.h">
       <Filter>Fichiers d'en-tête\Interface HM</Filter>
     </ClInclude>
-
     <ClInclude Include="stats.h">
       <Filter>Fichiers d'en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="temp.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="sousCommande.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD\SousClasse</Filter>
+    </ClInclude>
+    <ClInclude Include="AccesBDD.h">
+      <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

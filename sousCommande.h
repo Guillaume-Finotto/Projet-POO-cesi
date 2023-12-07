@@ -1,9 +1,9 @@
 #pragma once
 #include "Manager.h"
 
-class sousCommande : public Manager
+ref class sousCommande : public Manager
 {
 public:
-
+	sousCommande(AccesBDD* bdd) : Manager(bdd){};
 };
 

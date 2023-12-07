@@ -173,12 +173,12 @@ private: System::Void Interface_Load(System::Object^ sender, System::EventArgs^ 
 		   void ChargerDonneesDansListBox(Table table)
 		   {
 			   // Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
-			   Collections::Generic::List<String^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+			   List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
 
 			   // Ajoutez les données à la listBox
-			   for each (String^ str in donnees)
-			   {
-				   listBox1->Items->Add(str);
+			   for each (List<String^>^ liste in donnees){
+
+				   listBox1->Items->Add(String::Join("\t", liste->ToArray()));
 			   }
 		   }
 };

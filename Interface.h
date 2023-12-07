@@ -169,16 +169,17 @@ namespace ProjetPOO {
 	}
 	private:
 		// ... Autres membres de la classe
-
+		
 		void ChargerDonneesDansListBox(Table table)
 		{
 			// Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
-			Collections::Generic::List<String^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+			List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
 
-
-			for each (String ^ str in donnees)
+			
+			for each (List<String^> ^ liste in donnees)
 			{
-				listBox1->Items->Add(str);
+
+				listBox1->Items->Add(String::Join("\t", liste->ToArray()));
 			}
 		}
 	};

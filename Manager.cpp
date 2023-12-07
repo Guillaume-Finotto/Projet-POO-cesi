@@ -3,6 +3,12 @@
 #include <iostream>
 
 
+Manager::Manager(AccesBDD* Acces_BDD)
+{
+    BDD = Acces_BDD;
+    id = 0;
+
+}
 Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
 {
     if (Acces_BDD == nullptr)
@@ -10,37 +16,44 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
         std::cout << "Base De Donner Non crée";
         
     }
+    attributs = BDD->effectuerRequeteSQL("SELECT * FROM" + BDD->getref(Manager::type) + "WHERE id = " + std::to_string(id))[0];
 
-    BDD = Acces_BDD;
-    Manager::id = id;
-    Manager::valeurs = {"Identifiant", "autre valeur"};
+
     
 }
 
 
-void Manager::ajouter()
+void Manager::ajouter( vector<string> data )
 {
+    BDD->ajouterDansBDD(Manager::type, data);
+    
 
 }
 
-void Manager::detruire()
+void Manager::detruire(unsigned int ID)
 {
+    BDD->suprimerDansBDD(Manager::type, ID);
+
+
 }
 
-void Manager::afficher()
-{
-}
 
 
-void Manager::setattribut(collone col, std::string valeur)
+void Manager::setattribut(collone col, String^ valeur)
 { 
-    valeurs[col] = valeur;
+    attributs[col] = valeur;
 
 }
 
-std::string Manager::getAttribut(collone col)
+String^ Manager::getAttribut(collone col)
 {
 
-    return valeurs[col];
+    return attributs[col];
+}
+
+List<String^>^ Manager::getAllAttribut()
+{
+   
+    return attributs;
 }
 

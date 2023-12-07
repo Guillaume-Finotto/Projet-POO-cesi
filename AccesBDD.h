@@ -20,13 +20,13 @@ using namespace System::Data;
 using namespace System::Data::SqlClient;
 using namespace System::Xml;
 using namespace System;
-
+using namespace  Collections::Generic;
 namespace NS_Composants
 {
 
 }
 using namespace std;
-
+const string Tableref[5] = { "personnel","client" ,"commande","article","sous_Commande" };
 enum Table
 {
     Personnel ,
@@ -49,7 +49,7 @@ public:
 
     void ajouterDansBDD(Table table, vector<string> valeurs); 
     
-    Collections::Generic::List<String^>^ effectuerRequeteSQL(string requete);
+    List<List<String^>^>^ effectuerRequeteSQL(string requete);
     string getref(Table a);
 
 private:
@@ -58,5 +58,4 @@ private:
     SQLHANDLE sqlEnvHandle;
     SQLWCHAR retconstring[SQL_RETURN_CODE_LEN];
 
-	char*  const AccesBDD::Tableref[5] = {"personnel","client" ,"commande","article","sous_Commande" };
 };

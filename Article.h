@@ -1,12 +1,8 @@
 #pragma once
 #include "Manager.h"
-class Article :
-    public Manager
-{
+#include "Personel.h"
 
-
-public:
-    enum collone {
+/*enum colloneArticle {
         ID,
         Nom,
         Nature,
@@ -19,9 +15,16 @@ public:
         Prix_variable,
         Prix_fournisseur,
         en_vente
-    };
+    };*/
+ref class  Article :
+    public Manager
+{
+
+
+public:
+    Article(AccesBDD* poo) : Manager(poo){};
 private:
-    
+
     Table Type = Table::Article;
     /*
     vector<string> collone ={
