@@ -1,9 +1,7 @@
 ﻿#pragma once
 #include "Statistique.h"
-#include "Stock1.h"
-#include "Commande1.h"
-#include "Client1.h"
-#include "Personnel.h"
+#include "InterfaceMode.h"
+
 
 namespace ProjetPOO {
 
@@ -94,7 +92,7 @@ namespace ProjetPOO {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(181, 59);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Client";
+			this->button2->Text = L"CLient";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Accueil::button2_Click);
 			// 
@@ -184,6 +182,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->button1);
 			this->Name = L"Accueil";
 			this->Text = L"Accueil";
+			this->Load += gcnew System::EventHandler(this, &Accueil::Accueil_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -207,28 +206,30 @@ namespace ProjetPOO {
 		this->Show();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		Stock^ stockForm = gcnew Stock();
+		Interface^ face = gcnew Interface("Stock", Table::Article);
 		this->Hide(); // Masquer le formulaire de connexion
-		stockForm->ShowDialog();
-		this->Show();
+		face->ShowDialog();
+		this->Show();;
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-		Commande^  commande1 = gcnew Commande();
+		Interface^ face = gcnew Interface("Commande", Table::Commande);
 		this->Hide(); // Masquer le formulaire de connexion
-		commande1 ->ShowDialog();
+		face->ShowDialog();
 		this->Show();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		Client^ client = gcnew Client();
+		Interface^ face = gcnew Interface("InterfaceMode",Table::Client);
 		this->Hide(); // Masquer le formulaire de connexion
-		client->ShowDialog();
+		face->ShowDialog();
 		this->Show();
 }
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		Personnel^ personnel = gcnew Personnel();
+		Interface^ face = gcnew Interface("Personnel", Table::Personnel);
 		this->Hide(); // Masquer le formulaire de connexion
-		personnel->ShowDialog();
+		face->ShowDialog();
 		this->Show();
+}
+private: System::Void Accueil_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

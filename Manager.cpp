@@ -7,7 +7,7 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
 {
     if (Acces_BDD == nullptr)
     {
-        std::cout << "Base De Donner Non crée";
+        std::cout << "Base De Donner Non crï¿½e";
 
     }
 

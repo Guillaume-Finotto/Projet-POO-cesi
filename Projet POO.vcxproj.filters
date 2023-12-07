@@ -57,6 +57,9 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="AjouterClientDialog.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h">
@@ -80,26 +83,20 @@
     <ClInclude Include="Main.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Commande1.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
-    </ClInclude>
     <ClInclude Include="Accueil.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="CLient1.h">
+    <ClInclude Include="InterfaceMode.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="MyForm.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="Personnel.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
-    </ClInclude>
-    <ClInclude Include="Stock1.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
-    </ClInclude>
     <ClInclude Include="Statistique.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
+    <ClInclude Include="AjouterClientDialog.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

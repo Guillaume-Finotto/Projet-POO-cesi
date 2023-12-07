@@ -23,7 +23,7 @@ AccesBDD::AccesBDD()
     SQLRETURN ret = SQLDriverConnect(hDbc, NULL, connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
 
     if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
-        // Obtenir des informations détaillées sur l'erreur
+        // Obtenir des informations dï¿½taillï¿½es sur l'erreur
         SQLWCHAR sqlState[6];
         SQLINTEGER nativeError;
         SQLWCHAR messageText[256];
@@ -31,22 +31,22 @@ AccesBDD::AccesBDD()
 
         SQLGetDiagRec(SQL_HANDLE_DBC, hDbc, 1, sqlState, &nativeError, messageText, sizeof(messageText), &textLength);
 
-        std::wcerr << "Erreur lors de la connexion à la base de données." << std::endl;
-        std::wcerr << "État SQL: " << sqlState << std::endl;
+        std::wcerr << "Erreur lors de la connexion ï¿½ la base de donnï¿½es." << std::endl;
+        std::wcerr << "ï¿½tat SQL: " << sqlState << std::endl;
         std::wcerr << "Code d'erreur natif: " << nativeError << std::endl;
         std::wcerr << "Message d'erreur: " << messageText << std::endl;
 
-        // Libération des ressources en cas d'erreur
+        // Libï¿½ration des ressources en cas d'erreur
         SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
         SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 
-        std::cerr << "Erreur lors de la connexion à la base de données. : " << ret << std::endl;
+        std::cerr << "Erreur lors de la connexion ï¿½ la base de donnï¿½es. : " << ret << std::endl;
         std::cin >> t;
         std::cout << t;
         
     }
 
-    // Création d'une déclaration
+    // Crï¿½ation d'une dï¿½claration
     SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
     effectuerRequeteSQL("select * from personnel;");
 
@@ -54,7 +54,7 @@ AccesBDD::AccesBDD()
 
 AccesBDD::~AccesBDD()
 {
-    // Libération des ressources
+    // Libï¿½ration des ressources
     SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
     SQLDisconnect(hDbc);
     SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
@@ -84,7 +84,7 @@ void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
     }
     
     if (!flatData.empty()) {
-        // Supprimer le dernier caractère
+        // Supprimer le dernier caractï¿½re
         flatData.erase(flatData.size() - 1);
     }
     
@@ -107,13 +107,13 @@ string AccesBDD::getref(Table a)
 std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete)
 {
 
-    // Exemple de requête SQL (remplacez par votre propre requête)
+    // Exemple de requï¿½te SQL (remplacez par votre propre requï¿½te)
     SQLWCHAR* query = (SQLWCHAR*)requete.c_str();
     cout << std::string(reinterpret_cast<char*>(reinterpret_cast<wchar_t*>(query)));
     SQLRETURN ret;
     ret = SQLExecDirect(hStmt, query, SQL_NTS);
     cout << ret;
-    // Récupération des résultats
+    // Rï¿½cupï¿½ration des rï¿½sultats
     SQLCHAR buffer[256];
     SQLLEN indicator;
     SQLRETURN ret2 ;
@@ -134,7 +134,7 @@ std::vector<std::string> AccesBDD::effectuerRequeteSQL(const std::string requete
         }
 
         int out = SQLFetch(hStmt);
-        // Répétez le processus pour d'autres colonnes si nécessaire
+        // Rï¿½pï¿½tez le processus pour d'autres colonnes si nï¿½cessaire
     }
 
     std::cout << ret2 << std::endl;
