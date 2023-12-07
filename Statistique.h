@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-/*
 namespace ProjetPOO {
 
 	using namespace System;
@@ -433,13 +432,6 @@ namespace ProjetPOO {
 
 	private: System::Void Statistique_Load(System::Object^ sender, System::EventArgs^ e) {
 
-		array<String^>^ moisTab = { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" };
-		mois->Items->AddRange(moisTab);
-		Controls->Add(mois);
-
-		array<String^>^ anneeTab = { "2020", "2021", "2022", "2023" };
-		annee->Items->AddRange(anneeTab);
-		Controls->Add(annee);
 
 		ProduitsSousSeuil->Items->Add("Numéro\tNom\tNature");
 		ProduitsSousSeuil->Items->Add("259\tYaourt\tFrais");
@@ -484,4 +476,3 @@ namespace ProjetPOO {
 	}
 	};
 }
-*/

@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="AccesBDD.cpp">
       <Filter>Fichiers sources\DefClasse</Filter>
     </ClCompile>
@@ -95,13 +92,13 @@
     <ClInclude Include="MyForm.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
-    <ClInclude Include="Statistique.h">
-      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
-    </ClInclude>
     <ClInclude Include="Personnel.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
     <ClInclude Include="Stock1.h">
+      <Filter>Fichiers d%27en-tête\Interface HM</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistique.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
   </ItemGroup>
