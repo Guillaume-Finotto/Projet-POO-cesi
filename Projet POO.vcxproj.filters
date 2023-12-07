@@ -57,7 +57,14 @@
     <ClCompile Include="Statistique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Stat.cpp">
+=======
+    <ClCompile Include="Cl_Stat.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="stats.cpp">
+>>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,7 +111,11 @@
     <ClInclude Include="Stock1.h">
       <Filter>Fichiers d%27en-tête\Interface HM</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Stat.h">
+=======
+    <ClInclude Include="stats.h">
+>>>>>>> afd0b96ecd1de40055993775abb09f30d0c7fd54
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

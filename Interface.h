@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <msclr/marshal_cppstd.h>
+#include "Manager.h"
 
 namespace ProjetPOO {
 
@@ -10,37 +12,39 @@ namespace ProjetPOO {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Description résumée de Client
+	/// Description résumée de Interface
 	/// </summary>
-	public ref class Client : public System::Windows::Forms::Form
+	public ref class Interface : public System::Windows::Forms::Form
 	{
 	public:
-		Client(void)
+		Interface(std::string type, Table table)
 		{
-			InitializeComponent();
-			//
-			//TODO: ajoutez ici le code du constructeur
-			//
+			InitializeComponent(type, table);
+			this->table = table;
+			this->BDD = BDD;
 		}
 
 	protected:
 		/// <summary>
 		/// Nettoyage des ressources utilisées.
 		/// </summary>
-		~Client()
+		~Interface()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
+
+	private: AccesBDD* BDD;
+	private: Table table;
 	private: System::Windows::Forms::Label^ label3;
-	protected:
 	private: System::Windows::Forms::Button^ RETOUR;
 	private: System::Windows::Forms::ListBox^ listBox1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+
 
 	private:
 		/// <summary>
@@ -51,9 +55,9 @@ namespace ProjetPOO {
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
+		/// le contenu de cette méthode avec l'éditeur dsde.
 		/// </summary>
-		void InitializeComponent(void)
+		void InitializeComponent(std::string type, Table table)
 		{
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->RETOUR = (gcnew System::Windows::Forms::Button());
@@ -72,8 +76,7 @@ namespace ProjetPOO {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(176, 37);
 			this->label3->TabIndex = 7;
-			this->label3->Text = L"Nos Clients";
-			this->label3->Click += gcnew System::EventHandler(this, &Client::label3_Click);
+			this->label3->Text = msclr::interop::marshal_as<System::String^>(type);;
 			// 
 			// RETOUR
 			// 
@@ -86,7 +89,7 @@ namespace ProjetPOO {
 			this->RETOUR->TabIndex = 8;
 			this->RETOUR->Text = L"< RETOUR";
 			this->RETOUR->UseVisualStyleBackColor = true;
-			this->RETOUR->Click += gcnew System::EventHandler(this, &Client::RETOUR_Click);
+			this->RETOUR->Click += gcnew System::EventHandler(this, &Interface::RETOUR_Click);
 			// 
 			// listBox1
 			// 
@@ -106,7 +109,7 @@ namespace ProjetPOO {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(151, 66);
 			this->button1->TabIndex = 10;
-			this->button1->Text = L"Ajouter Client";
+			this->button1->Text = L"Ajouter";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// button2
@@ -118,7 +121,7 @@ namespace ProjetPOO {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(151, 66);
 			this->button2->TabIndex = 11;
-			this->button2->Text = L"Supprimer\r\nClient";
+			this->button2->Text = L"Supprimer";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// button3
@@ -130,10 +133,10 @@ namespace ProjetPOO {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(189, 64);
 			this->button3->TabIndex = 12;
-			this->button3->Text = L"Modifier Client";
+			this->button3->Text = L"Modifier";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// Client
+			// Interface
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -145,8 +148,9 @@ namespace ProjetPOO {
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->RETOUR);
 			this->Controls->Add(this->label3);
-			this->Name = L"Client";
-			this->Text = L"Client";
+			this->Name = L"Interface";
+			this->Text = L"Interface";
+			this->Load += gcnew System::EventHandler(this, &Interface::Interface_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -159,7 +163,23 @@ namespace ProjetPOO {
 		   {
 			   this->Close();
 		   }
-	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void Interface_Load(System::Object^ sender, System::EventArgs^ e) {
+		ChargerDonneesDansListBox(table);
 	}
-};
+	private:
+		// ... Autres membres de la classe
+
+		void ChargerDonneesDansListBox(Table table)
+		{
+			// Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
+			vector<string> donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+
+			// Ajoutez les données à la listBox
+			for (const string& donnee : donnees)
+			{
+				listBox1->Items->Add(gcnew String(donnee.c_str()));
+			}
+		}
+	};
 }

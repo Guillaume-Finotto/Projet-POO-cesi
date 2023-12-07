@@ -8,7 +8,7 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
     if (Acces_BDD == nullptr)
     {
         std::cout << "Base De Donner Non crée";
-
+        
     }
 
     BDD = Acces_BDD;
@@ -16,6 +16,21 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
     Manager::valeurs = {"Identifiant", "autre valeur"};
     
 }
+
+
+void Manager::ajouter()
+{
+
+}
+
+void Manager::detruire()
+{
+}
+
+void Manager::afficher()
+{
+}
+
 
 void Manager::setattribut(collone col, std::string valeur)
 { 
