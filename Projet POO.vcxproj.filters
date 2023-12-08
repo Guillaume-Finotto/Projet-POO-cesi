@@ -66,6 +66,18 @@
     <ClCompile Include="sousCommande.cpp">
       <Filter>Fichiers sources\DefClasse\classeFille</Filter>
     </ClCompile>
+    <ClCompile Include="InterfaceClient.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfacePersonnel.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceStock.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceCommande.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h">
@@ -118,6 +130,18 @@
     </ClInclude>
     <ClInclude Include="AccesBDD.h">
       <Filter>Fichiers d%27en-tête\ClasseUtilisationBDD</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceClient.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfacePersonnel.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceStock.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceCommande.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

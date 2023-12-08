@@ -170,7 +170,7 @@ namespace ProjetPOO {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(200, 395);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(127, 42);
 			this->button1->TabIndex = 7;
@@ -181,7 +181,7 @@ namespace ProjetPOO {
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(212, 117);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(265, 22);
 			this->textBox1->TabIndex = 8;
@@ -189,7 +189,7 @@ namespace ProjetPOO {
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(212, 158);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox2->Margin = System::Windows::Forms::Padding(4);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(265, 22);
 			this->textBox2->TabIndex = 9;
@@ -197,7 +197,7 @@ namespace ProjetPOO {
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(212, 201);
-			this->textBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox3->Margin = System::Windows::Forms::Padding(4);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(265, 22);
 			this->textBox3->TabIndex = 10;
@@ -205,7 +205,7 @@ namespace ProjetPOO {
 			// textBox4
 			// 
 			this->textBox4->Location = System::Drawing::Point(212, 249);
-			this->textBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox4->Margin = System::Windows::Forms::Padding(4);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(265, 22);
 			this->textBox4->TabIndex = 11;
@@ -213,7 +213,7 @@ namespace ProjetPOO {
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Location = System::Drawing::Point(212, 297);
-			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(265, 22);
 			this->dateTimePicker1->TabIndex = 12;
@@ -221,7 +221,7 @@ namespace ProjetPOO {
 			// dateTimePicker2
 			// 
 			this->dateTimePicker2->Location = System::Drawing::Point(212, 345);
-			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker2->Name = L"dateTimePicker2";
 			this->dateTimePicker2->Size = System::Drawing::Size(265, 22);
 			this->dateTimePicker2->TabIndex = 13;
@@ -246,7 +246,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"InterfaceClient";
 			this->Text = L"InterfaceClient";
 			this->Load += gcnew System::EventHandler(this, &InterfaceClient::InterfaceClient_Load);
@@ -259,5 +259,6 @@ namespace ProjetPOO {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 };
 }
