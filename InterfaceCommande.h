@@ -100,7 +100,7 @@ namespace ProjetPOO {
 			// 
 			// dateTimePicker2
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(200, 175);
+			this->dateTimePicker2->Location = System::Drawing::Point(200, 166);
 			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker2->Name = L"dateTimePicker2";
 			this->dateTimePicker2->Size = System::Drawing::Size(265, 22);
@@ -108,7 +108,7 @@ namespace ProjetPOO {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(200, 133);
+			this->dateTimePicker1->Location = System::Drawing::Point(200, 128);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(265, 22);
@@ -116,7 +116,7 @@ namespace ProjetPOO {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(200, 346);
+			this->textBox4->Location = System::Drawing::Point(200, 309);
 			this->textBox4->Margin = System::Windows::Forms::Padding(4);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(265, 22);
@@ -125,7 +125,7 @@ namespace ProjetPOO {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(200, 299);
+			this->textBox3->Location = System::Drawing::Point(200, 274);
 			this->textBox3->Margin = System::Windows::Forms::Padding(4);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(265, 22);
@@ -134,7 +134,7 @@ namespace ProjetPOO {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(200, 260);
+			this->textBox2->Location = System::Drawing::Point(200, 240);
 			this->textBox2->Margin = System::Windows::Forms::Padding(4);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(265, 22);
@@ -143,7 +143,7 @@ namespace ProjetPOO {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(200, 218);
+			this->textBox1->Location = System::Drawing::Point(200, 203);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(265, 22);
@@ -154,7 +154,7 @@ namespace ProjetPOO {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(183, 418);
+			this->button1->Location = System::Drawing::Point(200, 361);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(127, 42);
@@ -168,7 +168,7 @@ namespace ProjetPOO {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(62, 180);
+			this->label7->Location = System::Drawing::Point(62, 171);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(107, 16);
@@ -180,7 +180,7 @@ namespace ProjetPOO {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(62, 138);
+			this->label6->Location = System::Drawing::Point(62, 133);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(109, 16);
@@ -192,7 +192,7 @@ namespace ProjetPOO {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(39, 349);
+			this->label5->Location = System::Drawing::Point(39, 312);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(132, 16);
@@ -205,7 +205,7 @@ namespace ProjetPOO {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(75, 305);
+			this->label4->Location = System::Drawing::Point(75, 280);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(94, 16);
@@ -218,7 +218,7 @@ namespace ProjetPOO {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(106, 263);
+			this->label3->Location = System::Drawing::Point(106, 243);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(63, 16);
@@ -231,7 +231,7 @@ namespace ProjetPOO {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(49, 224);
+			this->label2->Location = System::Drawing::Point(49, 209);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(122, 16);
@@ -277,7 +277,7 @@ namespace ProjetPOO {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Silver;
-			this->ClientSize = System::Drawing::Size(530, 514);
+			this->ClientSize = System::Drawing::Size(530, 445);
 			this->Controls->Add(this->dateTimePicker3);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->dateTimePicker2);
