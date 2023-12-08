@@ -9,10 +9,13 @@ enum collone {
         Date_embauche,
         ID_superieur
     };
-ref class Personel : Manager
+ref class CL_Personel : Manager
 {
+
 public:
-    Personel(AccesBDD* bdd) : Manager(bdd) {};
+    CL_Personel(AccesBDD* bdd) : Manager(bdd) {};
+   
+
 private:
 
     static String^ TypeEtTable = "Personnel";

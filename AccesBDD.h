@@ -47,7 +47,7 @@ public:
     void conextion();
     void deconextion();
 
-    void ajouterDansBDD(Table table, vector<string> valeurs); 
+    void ajouterDansBDD(Table table, List<String^>^ valeurs);
     
     List<List<String^>^>^ effectuerRequeteSQL(string requete);
     string getref(Table a);

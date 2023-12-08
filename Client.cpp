@@ -1,6 +1,6 @@
 #include "Client.h"
 
-Client::Client(AccesBDD* bdd, unsigned id) : Manager(bdd, id)
+CL_Client::Cl_Client(AccesBDD* bdd, unsigned id) : Manager(bdd, id)
 {
 
 }

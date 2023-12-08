@@ -221,10 +221,13 @@ namespace ProjetPOO {
 			// Ajoutez les données à la DataGridView
 			for each (List<String^> ^ liste in donnees)
 			{
+
 				this->dataGridView1->Rows->Add(String::Join("\t", liste->ToArray()));
 			}
 		}
 	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

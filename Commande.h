@@ -15,13 +15,14 @@ enum colloneCommande {
     };*/
 
 
-ref class Commande :
+ref class CL_Commande :
      Manager
 {
 
 public:
    
-    Commande(AccesBDD* bdd) : Manager(bdd){};
+    CL_Commande(AccesBDD* bdd) : Manager(bdd){};
+    void ajouter(List<String^>^ data, List < List<String^>^>^ sousCommande);// une sous commande c Id article -- IdCommande -- -- Quantite -- Prix_reduction
 
 private:
     String^ TypeEtTable = "Commande";

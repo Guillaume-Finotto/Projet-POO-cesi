@@ -23,8 +23,9 @@ Manager::Manager(AccesBDD * Acces_BDD, unsigned int id)
 }
 
 
-void Manager::ajouter( vector<string> data )
+void Manager::ajouter(List<String^>^ data )
 {
+    Manager::attributs->AddRange(Array())
     BDD->ajouterDansBDD(Manager::type, data);
     
 

@@ -11,10 +11,10 @@ enum class colloneClient {
     Premier_achat,
     client_inscrit
 };
-ref class Client : Manager
+ref class CL_Client : Manager
 {
 
-	Client(AccesBDD* bdd,unsigned int id);
+    CL_Client(AccesBDD* bdd,unsigned int id);
     
 private:
     String^  TypeEtTable = "Article";

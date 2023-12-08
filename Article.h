@@ -16,13 +16,14 @@
         Prix_fournisseur,
         en_vente
     };*/
-ref class  Article :
+ref class  CL_Article :
     public Manager
 {
 
 
 public:
-    Article(AccesBDD* poo) : Manager(poo){};
+
+    CL_Article(AccesBDD* poo, unsigned int id) : Manager(poo, unsigned int( id)){};
 private:
 
     Table Type = Table::Article;

@@ -103,17 +103,17 @@ void AccesBDD::suprimerDansBDD(Table table, string ID)
 
 }
 
-void AccesBDD::ajouterDansBDD(Table table, vector<string> valeurs)
+void AccesBDD::ajouterDansBDD(Table table, List<String^>^ valeurs)
 {
 
-    std::string flatData = "";
-    for(int i; i<valeurs.size();i++)
+    String^ flatData = "";
+    for(int i; i<sizeof(valeurs);i++)
     {
-        flatData = flatData + "'"+ valeurs[i]+"'" +",";
+        flatData = flatData + (String^)"'"+ valeurs[i]+"'" +",";
 
     }
     
-    if (!flatData.empty()) {
+    if (!flatData.) {
         // Supprimer le dernier caract�re
         flatData.erase(flatData.size() - 1);
     }

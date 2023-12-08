@@ -14,8 +14,17 @@ using namespace std;
 #include <sql.h>
 
 int main()
-{
+{/*
     
+    List<String^>^ Client = gcnew List<String^>;
+    Client->AddRange(gcnew array<String^,8> { "ID", "Nom", "Prenom", "Adresse_facturation", "Adresse_livraison", "Date_de_naissance", "Premier_achat", "client_inscrit" };
+    )
+    { "ID", "Nom", "Prenom", "Adresse_facturation", "Adresse_livraison", "Date_de_naissance", "Premier_achat", "client_inscrit" });
+
+    Array < String^> Commande = { "ID","Date_livraison","Date_paiement","Date_emission","Reference""Remise""Date_creation_commande","ID_client","ID_Personnel" };
+
+*/
+
     AccesBDD* basePrincipale = &AccesBDD();
     vector<string> a = { "Michel","David","chef","nulaprt",""};
     basePrincipale->ajouterDansBDD(Table::Personnel, a);
