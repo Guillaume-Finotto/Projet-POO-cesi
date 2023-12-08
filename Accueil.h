@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Statistique.h"
 #include "Interface.h"
+#include <msclr/marshal_cppstd.h>
 
 
 namespace ProjetPOO {
@@ -206,25 +207,65 @@ namespace ProjetPOO {
 		this->Show();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Stock", Table::Article, coloneArticle);
+		List<String^>^ colonneArticle = gcnew List<String^>();
+		colonneArticle->Add("ID");
+		colonneArticle->Add("Nom");
+		colonneArticle->Add("Nature");
+		colonneArticle->Add("Couleur");
+		colonneArticle->Add("PrixHT");
+		colonneArticle->Add("PrixTTC");
+		colonneArticle->Add("Qte_stocker");
+		colonneArticle->Add("seuil_reappro");
+		colonneArticle->Add("taux_TVA");
+		colonneArticle->Add("Prix_variable");
+		colonneArticle->Add("Prix_fournisseur");
+		colonneArticle->Add("en_vente");
+		Interface^ face = gcnew Interface("Stock", Table::Article,colonneArticle);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();;
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Commande", Table::Commande, coloneCommande);
+		List<String^>^ colonneCommande = gcnew List<String^>();
+		colonneCommande->Add("ID");
+		colonneCommande->Add("Date_livraison");
+		colonneCommande->Add("Date_paiement");
+		colonneCommande->Add("Date_emission");
+		colonneCommande->Add("Reference");
+		colonneCommande->Add("Remise");
+		colonneCommande->Add("Date_creation_commande");
+		colonneCommande->Add("ID_client");
+		colonneCommande->Add("ID_Personnel");
+		Interface^ face = gcnew Interface("Commande", Table::Commande,colonneCommande);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Client",Table::Client, coloneClient);
+		List<String^>^ colonneClient = gcnew List<String^>();
+		colonneClient->Add("ID");
+		colonneClient->Add("Nom");
+		colonneClient->Add("Prenom");
+		colonneClient->Add("Adresse_facturation");
+		colonneClient->Add("Adresse_livraison");
+		colonneClient->Add("Date_de_naissance");
+		colonneClient->Add("Premier_achat");
+		colonneClient->Add("client_inscrit");
+		Interface^ face = gcnew Interface("Client",Table::Client,colonneClient);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
 }
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		Interface^ face = gcnew Interface("Personnel", Table::Personnel, colonePersonnel);
+		List<String^>^ colonnePersonnel = gcnew List<String^>();
+		colonnePersonnel->Add("ID");
+		colonnePersonnel->Add("Nom");
+		colonnePersonnel->Add("Prenom");
+		colonnePersonnel->Add("Poste");
+		colonnePersonnel->Add("Adresse");
+		colonnePersonnel->Add("Date_embauche");
+		colonnePersonnel->Add("ID_superieur");
+		Interface^ face = gcnew Interface("Personnel", Table::Personnel, colonnePersonnel);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
 		this->Show();
