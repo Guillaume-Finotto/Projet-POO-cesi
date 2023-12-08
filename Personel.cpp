@@ -1,6 +1,6 @@
 #include "Personel.h"
 
-void CL_Personel::ajouter(vector<string> data)
+void CL_Personel::ajouter(List<String^>^ data)
 {
 
 	unsigned int PlusgrandeID = BDD->effectuerRequeteSQL("")[0][0]->ToString();

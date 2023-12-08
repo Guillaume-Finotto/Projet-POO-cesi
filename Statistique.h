@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <string>
 using namespace std;
 #include "Stat.h";
 
@@ -540,7 +541,7 @@ namespace Project1 {
 	}
 		   void ajouterPSS() {
 			   ProduitsSousSeuil->Items->Add("Numéro\tNom\tNature");
-			   string* [] x = obtenirproduitsSousSeuil();
+			   string** x = obtenirproduitsSousSeuil();
 			   int taille = sizeof(x) / sizeof(x[0]);
 
 			   for (int i = 0; i < taille; ++i) {
@@ -550,7 +551,7 @@ namespace Project1 {
 		   }
 		   void ajouterTop10() {
 			   Top10->Items->Add("Numéro\tNom\tNature");
-			   string* [] x = obtenirTop10();
+			   string** x = obtenirTop10();
 			   int taille = sizeof(x) / sizeof(x[0]);
 
 			   for (int i = 0; i < taille; ++i) {
@@ -560,11 +561,11 @@ namespace Project1 {
 		   }
 		   void ajouterFlop10() {
 			   Flop10->Items->Add("Numéro\tNom\tNature");
-			   string* [] x = obtenirFlop10();
+			   string** x = obtenirFlop10();
 			   int taille = sizeof(x) / sizeof(x[0]);
 
 			   for (int i = 0; i < taille; ++i) {
-				   String^ produitFormate = String::Format("{0}\t{1}\t{2]}", x[i]->Numero, x[i]->Nom, x[i]->Nature);
+				   String^ produitFormate = String::Format("{0}\t{1}\t{2]}", x, x[i]->Nom, x[i]->Nature);
 				   Flop10->Items->Add(produitFormate);
 			   }
 		   }

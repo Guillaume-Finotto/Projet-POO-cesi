@@ -26,10 +26,7 @@ int main()
 */
 
     AccesBDD* basePrincipale = &AccesBDD();
-    vector<string> a = { "Michel","David","chef","nulaprt",""};
-    basePrincipale->ajouterDansBDD(Table::Personnel, a);
-    basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel");
-    basePrincipale->effectuerRequeteSQL("SELECT * FROM personnel");
+
 
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);

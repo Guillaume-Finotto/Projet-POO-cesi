@@ -113,14 +113,14 @@ void AccesBDD::ajouterDansBDD(Table table, List<String^>^ valeurs)
 
     }
     
-    if (!flatData.) {
+    if (!flatData) {
         // Supprimer le dernier caract�re
-        flatData.erase(flatData.size() - 1);
+        flatData->Remove((flatData->Length - 1));
     }
     
     try{
 
-		effectuerRequeteSQL(string()+"INSERT INTO " + string(getref(table)) + " VALUES (" + flatData +");");
+		effectuerRequeteSQL(string()+"INSERT INTO " + string(getref(table)) + " VALUES (" + marshal_as<std::string>( flatData )+");");
     }
     catch (const exception& e) { cout << "Une erreur est survenu lors de l'ajout d'un element dans la BDD :" << e.what() << endl; }
 
