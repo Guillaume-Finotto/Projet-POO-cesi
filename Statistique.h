@@ -570,6 +570,7 @@ namespace Project1 {
 			   }
 		   }
 	private: System::Void Actualiser3_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		label13->Text = obtenirPrixStock();
 	}
 
