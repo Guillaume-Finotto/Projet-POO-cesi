@@ -124,6 +124,9 @@
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="InterfaceClient.cpp" />
+    <ClCompile Include="InterfaceCommande.cpp" />
+    <ClCompile Include="InterfacePersonnel.cpp" />
+    <ClCompile Include="InterfaceStock.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personel.cpp" />
@@ -143,6 +146,15 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="InterfaceClient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfaceCommande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfacePersonnel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfaceStock.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Main.h" />
@@ -181,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceClient.resx">
       <DependentUpon>InterfaceClient.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceCommande.resx">
+      <DependentUpon>InterfaceCommande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacePersonnel.resx">
+      <DependentUpon>InterfacePersonnel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceStock.resx">
+      <DependentUpon>InterfaceStock.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>

@@ -231,11 +231,13 @@ namespace ProjetPOO {
 		colonneCommande->Add("Date_livraison");
 		colonneCommande->Add("Date_paiement");
 		colonneCommande->Add("Date_emission");
-		colonneCommande->Add("Reference");
-		colonneCommande->Add("Remise");
-		colonneCommande->Add("Date_creation_commande");
+		colonneCommande->Add("Moyen_paiement");
 		colonneCommande->Add("ID_client");
 		colonneCommande->Add("ID_Personnel");
+		colonneCommande->Add("Date_creation_commande");
+		colonneCommande->Add("Prix_commande");
+		colonneCommande->Add("Reference");
+		colonneCommande->Add("Remise");
 		Interface^ face = gcnew Interface("Commande", Table::Commande,colonneCommande);
 		this->Hide(); // Masquer le formulaire de connexion
 		face->ShowDialog();
