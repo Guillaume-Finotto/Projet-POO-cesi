@@ -41,6 +41,7 @@ void Manager::detruire(unsigned int ID)
 
 
 
+
 void Manager::setattribut(collone col, String^ valeur)
 { 
     attributs[col] = valeur;

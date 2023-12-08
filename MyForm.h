@@ -172,6 +172,7 @@ namespace ProjetPOO {
 			   this->Controls->Add(this->label1);
 			   this->Name = L"MyForm";
 			   this->Text = L"Login";
+			   this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
@@ -188,6 +189,7 @@ namespace ProjetPOO {
 			this->Show(); // Afficher à nouveau le formulaire de connexion après la fermeture du formulaire Accueil
 		}
 		else {
+
 			// Sinon, afficher un message d'erreur
 			UpdateErrorMessage("Nom d'utilisateur ou mot de passe incorrect");
 		}
@@ -200,5 +202,7 @@ namespace ProjetPOO {
 
 
 #pragma endregion
-	};
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

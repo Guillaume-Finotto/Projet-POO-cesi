@@ -16,6 +16,8 @@
         Prix_fournisseur,
         en_vente
     };*/
+
+
 ref class  CL_Article :
     public Manager
 {

@@ -1,8 +1,14 @@
 #include "Stat.h"
-
+/*
 Stat::Stat()
     : acceeBDD(std::make_unique<AccesBDD>())
 {
+
+    Stat::acceeBDD = &AccesBDD();
+
+
+
+
     // Initialisation par liste pour créer un nouvel objet AccesBDD
 }
 
@@ -54,12 +60,12 @@ std::unique_ptr<Article[]> Stat::obtenirProduitsSousSeuil()
     }
 }
 
-std::unique_ptr<Article[]> Stat::obtenirTop10()
+std::unique_ptr<CL_Article[]> Stat::obtenirTop10()
 {
     std::string requete = "SELECT IDarticle, sum(NombreArticle) FROM sousCommande GROUP BY IDarticle ORDER BY 2 DESC LIMIT 10; ";
-    std::vector<std::string> resultats = acceeBDD->effectuerRequeteSQL(requete);
-    if (!resultats.empty()) {
-        std::unique_ptr<Article[]> articles(new Article[resultats.size()]);
+    List<List<String^>^>^ resultats = acceeBDD->effectuerRequeteSQL(requete);
+    if (!resultats->ToArray()->Length != 0) {
+        CL_Article^ articles = gcnew  CL_Article(acceeBDD,);
 
         for (size_t i = 0; i < resultats.size(); ++i) {
             articles[i].initialiserDepuisChaine(resultats[i]);
@@ -113,3 +119,4 @@ float Stat::obtenirCoutStock()
         return 0.0f;
     }
 }
+*/

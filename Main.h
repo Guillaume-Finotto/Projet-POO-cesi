@@ -4,4 +4,3 @@
 #include "Client.h"
 #include "MyForm.h"
 #include "Article.h"
-Article

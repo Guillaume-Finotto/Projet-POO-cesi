@@ -203,7 +203,7 @@ List<List<String^>^>^ AccesBDD::effectuerRequeteSQL(const std::string requete)
         //else display query result
         std::cout << requete;
         while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
-            int columns = 0;
+            int columns = 10;
             SQLNumResultCols(sqlStmtHandle, (SQLSMALLINT*)&columns);
 
             List<String^>^ row = gcnew List<String^>;

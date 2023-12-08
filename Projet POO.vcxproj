@@ -83,7 +83,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>odbc32.lib</AdditionalDependencies>
-      <SubSystem>NotSet</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\Joris\Desktop\SQLiteCpp-master;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

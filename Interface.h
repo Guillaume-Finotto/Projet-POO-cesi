@@ -222,12 +222,14 @@ namespace ProjetPOO {
 			for each (List<String^> ^ liste in donnees)
 			{
 
-				this->dataGridView1->Rows->Add(String::Join("\t", liste->ToArray()));
+				this->dataGridView1->Rows->AddRange();
 			}
 		}
 	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_3(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
