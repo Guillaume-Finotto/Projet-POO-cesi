@@ -208,7 +208,7 @@ List<List<String^>^>^ AccesBDD::effectuerRequeteSQL(string reauete) {
     for (int rowNumber = 0; rowNumber < maxRows && SQLFetch(sqlStmtHandle) == SQL_SUCCESS;) {
         List<String^>^ row = gcnew List<String^>();
         rowNumber = rowNumber + 1;
-        for (int i = 2; i <= columns; ++i) {
+        for (int i = 1; i <= columns; ++i) {
             cout << columns << endl;
             SQLCHAR buffer[600];
             SQLLEN ptrSqlVersion;
