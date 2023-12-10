@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 #include "Stat.h";
-/*
+
 namespace Project1 {
 
 	using namespace System;
@@ -539,10 +539,7 @@ namespace Project1 {
 
 	private: System::Void Actualiser1_Click(System::Object^ sender, System::EventArgs^ e) {
 		AccesBDD* a;
-		
-
-		label7->Text = a->effectuerRequeteSQL("SELECT SUM(Prix_commande_Avec_remise) FROM Commande WHERE SUBSTRING(Date_paiement, 1, 6) = '" +  + "';")[0][0];
-
+		label7->Text = a->obtenirPanierMoyen();
 	}
 
 
@@ -553,44 +550,45 @@ namespace Project1 {
 	}
 		   void ajouterPSS() {
 			   ProduitsSousSeuil->Items->Add("Numéro\tNom\tNature");
-			   string** x = obtenirproduitsSousSeuil();
-			   int taille = sizeof(x) / sizeof(x[0]);
+			   array<String^>^ x = obtenirproduitsSousSeuil();
+			   int taille = produitsSousSeuil->Length;
 
 			   for (int i = 0; i < taille; ++i) {
-				   String^ produitFormate = String::Format("{0}\t{1}\t{2]}", x[i]->Numero, x[i]->Nom, x[i]->Nature);
+				   String^ produitFormate = String::Format("{0}\t{1}\t{2}", x[i]->Split('\t'));
 				   ProduitsSousSeuil->Items->Add(produitFormate);
 			   }
 		   }
 
-		   void ajouterTop10() {
-			   
-			   string** x = obtenirTop10();
-			   int taille = sizeof(x) / sizeof(x[0]);
+		   void ajouterFlop10() {
+			   Top10->Items->Add("Numéro\tNom\tNature");
+			   array<String^>^ x = obtenirFlop10();
+			   int taille = Top10->Length;
 
 			   for (int i = 0; i < taille; ++i) {
-				   String^ produitFormate = String::Format("{0}\t{1}\t{2]}", x[i]->Numero, x[i]->Nom, x[i]->Nature);
+				   String^ produitFormate = String::Format("{0}\t{1}\t{2}", x[i]->Split('\t'));
 				   Top10->Items->Add(produitFormate);
 			   }
 		   }
+
 		   void ajouterFlop10() {
 			   Flop10->Items->Add("Numéro\tNom\tNature");
-			   string** x = obtenirFlop10();
-			   int taille = sizeof(x) / sizeof(x[0]);
+			   array<String^>^ x = obtenirFlop10();
+			   int taille = Flop10->Length;
 
 			   for (int i = 0; i < taille; ++i) {
-				   String^ produitFormate = String::Format("{0}\t{1}\t{2]}", x, x[i]->Nom, x[i]->Nature);
+				   String^ produitFormate = String::Format("{0}\t{1}\t{2}", x[i]->Split('\t'));
 				   Flop10->Items->Add(produitFormate);
 			   }
 		   }
+
 	private: System::Void Actualiser3_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
-
-		label13->Text = obtenirPrixStock();
+		AccesBDD* a;
+		label13->Text = a->obtenirPrixStock();
 	}
 
 	private: System::Void Actualiser4_Click(System::Object^ sender, System::EventArgs^ e) {
-		label15->Text = obtenirCoutStock();
+		AccessBDD* a;
+		label15->Text = a->obtenirCoutStock();
 	}
 
 		   void configCompoBox() {
@@ -648,7 +646,7 @@ namespace Project1 {
 	private: System::Void label14_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	}
-};
+	};
 }
-*/

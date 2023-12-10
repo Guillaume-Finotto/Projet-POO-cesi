@@ -1,5 +1,5 @@
 #include "Stat.h"
-/*
+
 Stat::Stat()
     : acceeBDD(std::make_unique<AccesBDD>())
 {
@@ -119,4 +119,3 @@ float Stat::obtenirCoutStock()
         return 0.0f;
     }
 }
-*/
