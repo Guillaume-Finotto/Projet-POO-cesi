@@ -23,9 +23,8 @@ int main()
 
     Array < String^> Commande = { "ID","Date_livraison","Date_paiement","Date_emission","Reference""Remise""Date_creation_commande","ID_client","ID_Personnel" };
 
-*/
+*/String^ a = "-----------------------";
 
-    AccesBDD* basePrincipale = &AccesBDD();
 
 
     Application::EnableVisualStyles();
@@ -37,8 +36,7 @@ int main()
     Application::Run(mainForm);
 
     // Créez une instance de AccesBDD
-    AccesBDD* monBDD = new AccesBDD(/* paramètres de construction éventuels */);
-
+ 
     // Créez une instance de Table (assurez-vous de définir correctement votre constructeur)
     Table maTable = Table(/* paramètres de construction éventuels */);
 

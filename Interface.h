@@ -3,8 +3,11 @@
 #include "Manager.h"
 
 
-namespace ProjetPOO {
 
+
+
+namespace ProjetPOO {
+	
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -20,10 +23,11 @@ namespace ProjetPOO {
 	public:
 		Interface(std::string type, Table table, List<String^>^ colonne)
 		{
-			BDD = new AccesBDD();
+			cout << "INITLALK";
 			InitializeComponent(type, table, colonne);
 			this->table = table;
 			this->colonne = colonne;
+			
 		}
 
 	protected:
@@ -38,7 +42,6 @@ namespace ProjetPOO {
 				delete components;
 			}
 		}
-
 	private: AccesBDD* BDD;
 	private: List<String^>^ colonne;
 	private: Table table;
@@ -209,27 +212,33 @@ namespace ProjetPOO {
 				   // Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
 				   List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
 
+
+			this->dataGridView1->Rows->Clear();
 				   // Créez les colonnes de la DataGridView (vous devrez ajuster cela en fonction de votre modèle de données)
 				   this->dataGridView1->Columns->Clear();
 
+				   
 				   for (int i = 0; i < colonne->Count; i++)
 				   {
 					   this->dataGridView1->Columns->Add(gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 					   this->dataGridView1->Columns[i]->HeaderText = colonne[i];
 				   }
 
-			// Ajoutez les données à la DataGridView
-			for each (List<String^> ^ liste in donnees)
-			{
-
-				this->dataGridView1->Rows->AddRange();
-			}
-		}
+				   // Ajoutez les données à la DataGridView
+				   for each (List<String^> ^ liste in donnees)
+				   {
+						   this->dataGridView1->Rows->Add(liste->ToArray());
+					   
+					 
+				   }
+			   }
 	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Interface_Load_3(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_4(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

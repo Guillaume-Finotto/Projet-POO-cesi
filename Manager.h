@@ -9,26 +9,18 @@ enum collone;
 
  ref class  Manager
 {
-
-
-
-	 
 public:
 	
 	Manager(AccesBDD* Acces_BDD);
 	Manager(AccesBDD *Acces_BDD, unsigned int id);
 
-
 	 void ajouter(List<String^>^ data);
 	void detruire(unsigned int ID);
     void setattribut(collone col, String^ valeur);
 
-
-
     String^ getAttribut(collone col);
 
 	List<String^>^ getAllAttribut();
-
 
 protected:
 	

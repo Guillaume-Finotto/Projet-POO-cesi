@@ -15,7 +15,7 @@
 //include the below additional libraries
 
 #include <sqltypes.h>
-
+const std::string Tableref[5] = { "personnel","client" ,"commande","article","sous_Commande" };
 using namespace System::Data;
 using namespace System::Data::SqlClient;
 using namespace System::Xml;
@@ -26,7 +26,7 @@ namespace NS_Composants
 
 }
 using namespace std;
-const string Tableref[5] = { "personnel","client" ,"commande","article","sous_Commande" };
+
 enum Table
 {
     Personnel ,
