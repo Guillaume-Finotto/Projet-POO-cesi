@@ -44,8 +44,7 @@ public:
 
     void suprimerDansBDD(Table table, unsigned int ID);
     void suprimerDansBDD(Table table, string ID);
-    void conextion();
-    void deconextion();
+
 
     void ajouterDansBDD(Table table, List<String^>^ valeurs);
     

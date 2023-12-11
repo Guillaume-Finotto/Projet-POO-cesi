@@ -211,7 +211,25 @@ namespace ProjetPOO {
 			   {
 				   // Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
 				   List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+				   if (table == Table::Commande)
+				   {
+						int NbColMAx = 0;
+						for each (List<String^>^ lis in donnees)
+						{
+							if (sizeof(lis) > NbColMAx) { NbColMAx = sizeof(lis); }
+						}
 
+						NbColMAx = NbColMAx - sizeof(colonne);
+						for (int i =0; i < NbColMAx/2;i++)
+						{
+							String^ col = gcnew String("ID_Objet " + i);
+							colonne->Add(col);
+							String^ col2 = gcnew String("Quantitée " + i);
+							colonne->Add(col2);
+						}
+				   }
+						
+					
 
 			this->dataGridView1->Rows->Clear();
 				   // Créez les colonnes de la DataGridView (vous devrez ajuster cela en fonction de votre modèle de données)
@@ -239,6 +257,8 @@ private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs
 private: System::Void Interface_Load_3(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Interface_Load_4(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_5(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

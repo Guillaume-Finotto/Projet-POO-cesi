@@ -13,71 +13,11 @@ using namespace std;
 
 AccesBDD::AccesBDD()
 {
-    sqlEnvHandle = NULL;
-    sqlConnHandle = NULL;
-    sqlStmtHandle = NULL;
-
-    //allocations
-    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &sqlEnvHandle))
-        deconextion();
-    if (SQL_SUCCESS != SQLSetEnvAttr(sqlEnvHandle, SQL_ATTR_ODBC_VERSION, (SQLPOINTER)SQL_OV_ODBC3, 0))
-        deconextion();
-    if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
-        deconextion();
-
-}
-
-
-void AccesBDD::deconextion()
-{
-
-
-
-    SQLFreeHandle(SQL_HANDLE_STMT, sqlStmtHandle);
-    SQLDisconnect(sqlConnHandle);
-    SQLFreeHandle(SQL_HANDLE_DBC, sqlConnHandle);
-    SQLFreeHandle(SQL_HANDLE_ENV, sqlEnvHandle);
-
-}
-// Inutiser 
-void AccesBDD::conextion() {
-
-    cout << "Attempting connection to SQL Server...";
-    cout << "\n";
-
-    switch (SQLDriverConnect(sqlConnHandle,
-        NULL,
-        //(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=master;UID=username;PWD=password;",
-        (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost\\mssqlserver01;DATABASE=ProjetPOO;Trusted=true;",
-        SQL_NTS,
-        retconstring,
-        1024,
-        NULL,
-        SQL_DRIVER_NOPROMPT)) {
-    case SQL_SUCCESS:
-        cout << "Successfully connected to SQL Server";
-        cout << "\n";
-        break;
-    case SQL_SUCCESS_WITH_INFO:
-        cout << "Successfully connected to SQL Server";
-        cout << "\n";
-        break;
-    case SQL_INVALID_HANDLE:
-        cout << "Could not connect to SQL Server";
-        cout << "\n";
-        deconextion();
-    case SQL_ERROR:
-        cout << "Could not connect to SQL Server";
-        cout << "\n";
-        deconextion();
-    default:
-        break;
-    }
-    //if there is a problem connecting then exit application
-    SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_STMT, sqlConnHandle, &sqlStmtHandle);
 
 
 }
+
+
 
 
 
