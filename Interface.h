@@ -1,6 +1,10 @@
 ﻿#pragma once
 #include <msclr/marshal_cppstd.h>
 #include "Manager.h"
+#include "InterfacePersonnel.h"
+#include "InterfaceClient.h"
+#include "InterfaceStock.h"
+#include "InterfaceCommande.h"
 
 
 namespace ProjetPOO {
@@ -120,6 +124,7 @@ namespace ProjetPOO {
 			this->button1->TabIndex = 10;
 			this->button1->Text = L"Ajouter";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Interface::button1_Click);
 			// 
 			// button2
 			// 
@@ -225,11 +230,33 @@ namespace ProjetPOO {
 				this->dataGridView1->Rows->AddRange();
 			}
 		}
-	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Interface_Load_3(System::Object^ sender, System::EventArgs^ e) {
-}
+			   private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+				   // Vérifiez le type et ouvrez l'interface appropriée
+				   if (table == Table ::Client) {
+					   InterfaceClient^ inteClient = gcnew InterfaceClient();
+					   this->Hide(); // Masquer le formulaire actuel
+					   inteClient->ShowDialog();
+					   this->Show();
+				   }
+				   else if (table == Table::Personnel) {
+					   InterfacePersonnel^ intePerso = gcnew InterfacePersonnel();
+					   this->Hide(); // Masquer le formulaire actuel
+					   intePerso->ShowDialog();
+					   this->Show();
+				   }	
+				   else if (table == Table::Commande) {
+					   InterfaceCommande^ inteCommande = gcnew InterfaceCommande();
+					   this->Hide(); // Masquer le formulaire actuel
+					   inteCommande->ShowDialog();
+					   this->Show();
+				   }
+				   else if (table == Table::Article) {
+					   InterfaceStock^ inteStock = gcnew InterfaceStock();
+					   this->Hide(); // Masquer le formulaire actuel
+					   inteStock->ShowDialog();
+					   this->Show();
+				   }
+			   }
+
 };
 }
