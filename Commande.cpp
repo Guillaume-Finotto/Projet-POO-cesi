@@ -4,6 +4,9 @@ void CL_Commande::ajouter(List<String^>^ data, List < List<String^>^>^ sousComma
 {//Date livraison pai emision moypaiment 
 
 
+
+	// C'est un miracle si sa marche, j'ai pas tester les SQL
+
 	String^ idCommandeMax = BDD->effectuerRequeteSQL("SELECT MAX(ID_Commande) + 1 AS Max_ID_Commande FROM Commande; ")[0][0];
 	//CREATION DE TOUTE LES SOUS COMMANDES :
 	//ID articleID  Commande quantite "prix"

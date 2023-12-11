@@ -1,14 +1,13 @@
 ﻿#pragma once
 #include <msclr/marshal_cppstd.h>
 #include "Manager.h"
-#include "InterfacePersonnel.h"
-#include "InterfaceClient.h"
-#include "InterfaceStock.h"
-#include "InterfaceCommande.h"
+
+
+
 
 
 namespace ProjetPOO {
-
+	
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -24,10 +23,11 @@ namespace ProjetPOO {
 	public:
 		Interface(std::string type, Table table, List<String^>^ colonne)
 		{
-			BDD = new AccesBDD();
+			cout << "INITLALK";
 			InitializeComponent(type, table, colonne);
 			this->table = table;
 			this->colonne = colonne;
+			
 		}
 
 	protected:
@@ -42,7 +42,6 @@ namespace ProjetPOO {
 				delete components;
 			}
 		}
-
 	private: AccesBDD* BDD;
 	private: List<String^>^ colonne;
 	private: Table table;
@@ -124,7 +123,6 @@ namespace ProjetPOO {
 			this->button1->TabIndex = 10;
 			this->button1->Text = L"Ajouter";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Interface::button1_Click);
 			// 
 			// button2
 			// 
@@ -213,50 +211,54 @@ namespace ProjetPOO {
 			   {
 				   // Utilisez l'objet AccesBDD pour récupérer les données de la table spécifiée
 				   List<List<String^>^>^ donnees = BDD->effectuerRequeteSQL("SELECT * FROM " + BDD->getref(table));
+				   if (table == Table::Commande)
+				   {
+						int NbColMAx = 0;
+						for each (List<String^>^ lis in donnees)
+						{
+							if (sizeof(lis) > NbColMAx) { NbColMAx = sizeof(lis); }
+						}
 
+						NbColMAx = NbColMAx - sizeof(colonne);
+						for (int i =0; i < NbColMAx/2;i++)
+						{
+							String^ col = gcnew String("ID_Objet " + i);
+							colonne->Add(col);
+							String^ col2 = gcnew String("Quantitée " + i);
+							colonne->Add(col2);
+						}
+				   }
+						
+					
+
+			this->dataGridView1->Rows->Clear();
 				   // Créez les colonnes de la DataGridView (vous devrez ajuster cela en fonction de votre modèle de données)
 				   this->dataGridView1->Columns->Clear();
 
+				   
 				   for (int i = 0; i < colonne->Count; i++)
 				   {
 					   this->dataGridView1->Columns->Add(gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 					   this->dataGridView1->Columns[i]->HeaderText = colonne[i];
 				   }
 
-			// Ajoutez les données à la DataGridView
-			for each (List<String^> ^ liste in donnees)
-			{
-
-				this->dataGridView1->Rows->AddRange();
-			}
-		}
-			   private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-				   // Vérifiez le type et ouvrez l'interface appropriée
-				   if (table == Table ::Client) {
-					   InterfaceClient^ inteClient = gcnew InterfaceClient();
-					   this->Hide(); // Masquer le formulaire actuel
-					   inteClient->ShowDialog();
-					   this->Show();
-				   }
-				   else if (table == Table::Personnel) {
-					   InterfacePersonnel^ intePerso = gcnew InterfacePersonnel();
-					   this->Hide(); // Masquer le formulaire actuel
-					   intePerso->ShowDialog();
-					   this->Show();
-				   }	
-				   else if (table == Table::Commande) {
-					   InterfaceCommande^ inteCommande = gcnew InterfaceCommande();
-					   this->Hide(); // Masquer le formulaire actuel
-					   inteCommande->ShowDialog();
-					   this->Show();
-				   }
-				   else if (table == Table::Article) {
-					   InterfaceStock^ inteStock = gcnew InterfaceStock();
-					   this->Hide(); // Masquer le formulaire actuel
-					   inteStock->ShowDialog();
-					   this->Show();
+				   // Ajoutez les données à la DataGridView
+				   for each (List<String^> ^ liste in donnees)
+				   {
+						   this->dataGridView1->Rows->Add(liste->ToArray());
+					   
+					 
 				   }
 			   }
-
+	private: System::Void Interface_Load_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void Interface_Load_2(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_3(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_4(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Interface_Load_5(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <string>
 using namespace std;
-#include "Stat.h";
+#include "Stat.h";/*
 
 namespace Project1 {
 
@@ -517,14 +517,14 @@ namespace Project1 {
 			this->Controls->Add(this->label1);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"MainForm";
-			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
+			
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-#pragma endregion
+#pragma endregion/*
 	private: System::Void RETOUR_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	};
@@ -649,4 +649,4 @@ namespace Project1 {
 
 	}
 	};
-}
+}*/
